@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">my_test6</string>
+    <string name="title_home">首页</string>
+    <string name="title_blink">动态</string>
+    <string name="title_question">问答</string>
+    <string name="title_edu">班级</string>
+    <string name="title_user">我的</string>
+</resources>

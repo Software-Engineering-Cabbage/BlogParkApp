@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:id="@+id/searchView_home"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/edit_text_bg"
+        android:iconifiedByDefault="false"
+        android:queryBackground="@null"
+        android:queryHint="搜索感兴趣的内容"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton_home_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton_home_back"
+        app:layout_constraintTop_toTopOf="@+id/imageButton_home_back" />
+
+    <ImageButton
+        android:id="@+id/imageButton_home_back"
+        android:layout_width="74dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:background="#0000"
+        app:layout_constraintEnd_toStartOf="@+id/searchView_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
