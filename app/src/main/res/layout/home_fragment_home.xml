@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="104dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/bokeyuan" />
+
+    <EditText
+        android:id="@+id/editText_search"
+        android:layout_width="274dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableLeft="@drawable/ic_search_gray_24dp"
+        android:ems="10"
+        android:hint="搜索博客"
+        android:inputType="textPersonName" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout_home"
+        android:layout_width="match_parent"
+        android:layout_height="671dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F9F9F9" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+</RelativeLayout>

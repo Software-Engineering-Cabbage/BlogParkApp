@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" filepath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" group="my_test6/PullToRefresh" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="my_test6/app" />
+      <module fileurl="file://$PROJECT_DIR$/my_test6.iml" filepath="$PROJECT_DIR$/my_test6.iml" group="my_test6" />
+    </modules>
+  </component>
+</project>
