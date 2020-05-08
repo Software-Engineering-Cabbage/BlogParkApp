@@ -1,6 +1,6 @@
 ECLIPSE ANDROID PROJECT IMPORT SUMMARY
 ======================================
-
+ 
 Ignored Files:
 --------------
 The following files were *not* copied into the new Gradle project; you
