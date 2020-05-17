@@ -1,6 +1,7 @@
 package com.example.my_test6.user_module;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.CookieManager;
@@ -17,12 +18,16 @@ import java.io.File;
 public class logout extends AppCompatActivity {
     private Button confirm;
     private Button cancel;
+    private SharedPreferences sharedpreferences;
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_logout);
         cancel = findViewById(R.id.logout_cancel);
         setTitle("退出登录");
+        sharedpreferences = getApplication().getSharedPreferences("User", Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +43,8 @@ public class logout extends AppCompatActivity {
                 TokenPool.getTokenPool().UserToken = "";
                 TokenPool.getTokenPool().isLogin = false;
                 clearCache(logout.this);
+                editor.putBoolean("isLogin",false);
+                editor.commit();
                 logout.this.finish();
             }
         });
