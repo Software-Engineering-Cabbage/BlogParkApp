@@ -1,10 +1,16 @@
 package com.example.my_test6;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.example.my_test6.Pool.MinePool;
+import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.Pool.netWork.GetToken;
+import com.example.my_test6.user_module.GsonBean.Users;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -15,9 +21,21 @@ import androidx.navigation.ui.NavigationUI;
 public class MainActivity extends AppCompatActivity {
     private static  final int Post_Blog_1 = 0x002;
     private GetToken tokenMy= new GetToken();
+    private SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedpreferences = getApplication().getSharedPreferences("User", Context.MODE_PRIVATE);
+        boolean isLogin = sharedpreferences.getBoolean("isLogin",false);
+        TokenPool.getTokenPool().isLogin = isLogin;
+        System.out.println(isLogin);
+        if(isLogin){
+            TokenPool.getTokenPool().UserToken = sharedpreferences.getString("UserToken","");
+            Gson gson = new Gson();
+            String json = sharedpreferences.getString("Users","[]");
+            System.out.println(json);
+            MinePool.getMinePool().users = gson.fromJson(json,Users.class);
+        }
         getToken();
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);

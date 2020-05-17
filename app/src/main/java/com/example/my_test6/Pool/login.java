@@ -53,6 +53,8 @@ public class login extends AppCompatActivity {
                         if (msg.what == 0x1) {//收到users信息
                             Gson gson = new Gson();
                             String json = (String) msg.obj;
+                            editor.putString("Users",json);
+                            editor.commit();
                             Users users;
                             users = gson.fromJson(json, Users.class);
                             MinePool.getMinePool().users = users;

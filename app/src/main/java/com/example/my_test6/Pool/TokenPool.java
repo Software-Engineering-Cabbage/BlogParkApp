@@ -1,5 +1,8 @@
 package com.example.my_test6.Pool;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.example.my_test6.Pool.netWork.TokenString;
 
 public class TokenPool {
