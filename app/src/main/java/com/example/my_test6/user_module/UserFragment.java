@@ -1,8 +1,10 @@
 package com.example.my_test6.user_module;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,8 +31,11 @@ import com.example.my_test6.user_module.GsonBean.MyBlogs;
 import com.example.my_test6.user_module.GsonBean.Users;
 import com.google.gson.Gson;
 
+import static com.example.my_test6.Pool.login.clearCache;
+
 public class UserFragment extends Fragment {
     private UserViewModel userViewModel;
+    private SharedPreferences.Editor editor;
     private SharedPreferences sp;
     private View root;
     private Button message;
@@ -71,6 +76,7 @@ public class UserFragment extends Fragment {
         head1 = root.findViewById(R.id.UserHeadImage);
         head2 = root.findViewById(R.id.Userhead);
         sp = getActivity().getSharedPreferences("User",Context.MODE_PRIVATE);
+        editor = sp.edit();
         setUI();
         /*final TextView textView = root.findViewById(R.id.text_user);
         userViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -206,10 +212,7 @@ public class UserFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     //goto login
-                    Intent intent = new Intent();
-                    ComponentName componentname = new ComponentName("com.example.my_test6", "com.example.my_test6.user_module.logout");
-                    intent.setComponent(componentname);
-                    startActivity(intent);
+                    showCoverDialog();
                 }
             });
             head1.setImageResource(R.drawable.circle);
@@ -303,5 +306,28 @@ public class UserFragment extends Fragment {
             head1.setImageResource(R.drawable.head);
             head2.setImageResource(R.drawable.head);
         }
+    }
+    private void showCoverDialog(){
+        final Context context = this.getContext();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("提示");
+        builder.setMessage("确定退出登录吗？");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                TokenPool.getTokenPool().UserToken = "";
+                TokenPool.getTokenPool().isLogin = false;
+                setUI();//这里不用清理登录网页缓存，因为在每次进入登录的模块前清理了
+                editor.putBoolean("isLogin",false);
+                editor.commit();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
     }
 }
