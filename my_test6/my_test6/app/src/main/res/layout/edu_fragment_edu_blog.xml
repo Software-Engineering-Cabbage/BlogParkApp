@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".edu_module.Blog.EduBlogFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/emptyBlog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="暂时没有班级博客..."
+        android:textSize="30dp"/>
+
+    <ListView
+        android:id="@+id/blogList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</FrameLayout>
