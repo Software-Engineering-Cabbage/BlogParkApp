@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".blink_module.DeliverLoginFragment">
+
+
+    <LinearLayout
+        android:id="@+id/l_lay_out"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/deliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text"
+        android:text="发布"
+        tools:layout_editor_absoluteY="444dp" />
+
+    <CheckBox
+        android:id="@+id/deliver_private"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text"
+        android:layout_marginLeft="300dp"
+        android:text="私密"></CheckBox>
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/l_lay_out"
+        android:background="@drawable/edit_background"
+        android:hint="你在做什么？你在想什么？"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+</RelativeLayout>

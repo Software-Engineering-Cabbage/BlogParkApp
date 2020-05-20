@@ -1,9 +1,9 @@
 package com.example.my_test6;
 
 import android.os.Bundle;
-import android.view.WindowManager;
+import android.view.Window;
 
-import com.example.my_test6.netWork.GetToken;
+import com.example.my_test6.Pool.netWork.GetToken;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +13,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static  final int Post_Blog_1 = 0x002;
+    private GetToken tokenMy= new GetToken();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        getToken();
         getSupportActionBar().hide();
+        setContentView(R.layout.activity_main);
 
     //    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -30,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-        getToken();
+
 
     }
     private void getToken(){
-        GetToken tokenMy = new GetToken();
         tokenMy.getMyToken();
     }
 

@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">my_test6</string>
-    <string name="title_home">首页</string>
-    <string name="title_blink">动态</string>
-    <string name="title_question">问答</string>
-    <string name="title_edu">班级</string>
-    <string name="title_user">我的</string>
+    <string name="app_name" translatable="false">博客园</string>
+    <string name="title_home" translatable="false">首页</string>
+    <string name="title_blink" translatable="false">动态</string>
+    <string name="title_question" translatable="false">问答</string>
+    <string name="title_edu" translatable="false">班级</string>
+    <string name="title_user" translatable="false">我的</string>
 </resources>
