@@ -38,25 +38,46 @@ import java.util.List;
  */
 public class BlinkFatherFragment extends Fragment {
 
+    //  handler.what标记
     private static final int BLINK_INIT = 1;
     private static final int BLINK_ADD = 2;
+
+    //  get请求的url的字段，用于get请求类型
     private String type ;
+
+    //  get请求的url的字段，表示页偏移
     private Integer pageIndex ;
+
+    //  get请求的url的字段，表示页闪存个数
     private Integer pageSize ;
+
+    //  get请求的url的字段，表示闪存tag
     private String tag ;
     private PullToRefreshListView refreshListView;
+
+    //  onCreate时加载的layout
     @LayoutRes
     int layout;
+
+    //  layout上的组件
     @IdRes
     int blinkList;
+
+    //  闪存列
     private List<blinkInfo> blinkInfoList = new ArrayList<>();
+
+    //  适配器
     private com.example.my_test6.blink_module.adapter.blinkListAdapter blinkListAdapter;
+
+    //  所在的Activity
     private Activity mActivity;
+
     private static String TAG = "BlinkFatherFragment";
 
     public BlinkFatherFragment() {
         // Required empty public constructor
     }
+
     public BlinkFatherFragment(String type, Integer pageIndex, Integer pageSize, String tag, @LayoutRes int layout, @IdRes int blinkList) {
         this.type = type;
         this.pageIndex = pageIndex;
@@ -69,6 +90,7 @@ public class BlinkFatherFragment extends Fragment {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            //  将get到的请求转化为blinkInfoList的内容
             String s = (String) msg.obj;
             Type blinkListType = new TypeToken<ArrayList<blinkInfo>>() {
             }.getType();
@@ -76,6 +98,7 @@ public class BlinkFatherFragment extends Fragment {
             Gson gson = new Gson();
             blinkInfoList_temp = gson.fromJson(s, blinkListType);
             blinkInfoList.addAll(blinkInfoList_temp);
+
             if (msg.what == BLINK_INIT) {
                 Log.d("BlinkFatherFragment", "handleMessage: "+type+" "+mActivity);
                 blinkListAdapter = new blinkListAdapter(mActivity, blinkInfoList);
