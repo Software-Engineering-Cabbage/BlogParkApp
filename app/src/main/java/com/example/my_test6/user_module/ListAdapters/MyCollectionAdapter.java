@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.my_test6.R;
 import com.example.my_test6.user_module.ItemBean.ItemCollection;
+import com.example.my_test6.user_module.ItemTouchHelper.ItemTouchHelperAdapter;
 
 
 import java.util.ArrayList;
 
-public class MyCollectionAdapter extends RecyclerView.Adapter<MyCollectionAdapter.innerHolder> {
+public class MyCollectionAdapter extends RecyclerView.Adapter<MyCollectionAdapter.innerHolder> implements ItemTouchHelperAdapter {
     private final ArrayList<ItemCollection> mData;
     private MyCollectionAdapter.OnItemClickListener clickListener;
 
@@ -47,6 +48,17 @@ public class MyCollectionAdapter extends RecyclerView.Adapter<MyCollectionAdapte
     public void setOnItemClickListener(MyCollectionAdapter.OnItemClickListener listener) {
         //设置一个Item的监听器
         clickListener = listener;
+    }
+
+    @Override
+    public void onItemDelete(int position) {
+        mData.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    @Override
+    public void onItemRefresh(int position) {
+        notifyItemChanged(position);
     }
 
     public interface OnItemClickListener {

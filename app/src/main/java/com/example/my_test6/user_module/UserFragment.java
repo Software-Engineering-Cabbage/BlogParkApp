@@ -317,9 +317,9 @@ public class UserFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 TokenPool.getTokenPool().UserToken = "";
                 TokenPool.getTokenPool().isLogin = false;
-                setUI();//这里不用清理登录网页缓存，因为在每次进入登录的模块前清理了
                 editor.putBoolean("isLogin",false);
                 editor.commit();
+                setUI();//这里不用清理登录网页缓存，因为在每次进入登录的模块前清理了
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

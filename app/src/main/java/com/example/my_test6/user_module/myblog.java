@@ -2,11 +2,13 @@ package com.example.my_test6.user_module;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,6 +21,7 @@ import com.example.my_test6.user_module.GsonBean.MyBlogList;
 import com.example.my_test6.user_module.GsonBean.MyBlogs;
 import com.example.my_test6.user_module.GsonBean.Users;
 import com.example.my_test6.user_module.ItemBean.ItemMyBlog;
+import com.example.my_test6.user_module.ItemTouchHelper.myItemTouchHelperCallBack;
 import com.example.my_test6.user_module.ListAdapters.MyBlogAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -33,6 +36,7 @@ public class myblog extends AppCompatActivity {
     private MyBlogs myBlogs;
     private Users users;
     private List<MyBlogList> datalist;
+    private Context context = this;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler(){
         @Override
@@ -61,6 +65,10 @@ public class myblog extends AppCompatActivity {
                     }
                     mAdapter = new MyBlogAdapter(mdata);
                     recyclerView.setAdapter(mAdapter);
+                    ItemTouchHelper.Callback callback = new myItemTouchHelperCallBack(mAdapter,context,"确定删除这篇博客吗？");
+                    ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+                    touchHelper.attachToRecyclerView(recyclerView);
+
                     initListener();
                 }
             }

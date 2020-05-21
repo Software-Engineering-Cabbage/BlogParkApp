@@ -2,11 +2,13 @@ package com.example.my_test6.user_module;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +18,7 @@ import com.example.my_test6.R;
 import com.example.my_test6.Pool.netWork.GetUserApi;
 import com.example.my_test6.user_module.GsonBean.MyCollection;
 import com.example.my_test6.user_module.ItemBean.ItemCollection;
+import com.example.my_test6.user_module.ItemTouchHelper.myItemTouchHelperCallBack;
 import com.example.my_test6.user_module.ListAdapters.MyCollectionAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -28,6 +31,7 @@ public class collection extends AppCompatActivity {
     private ArrayList<ItemCollection> data = new ArrayList<>();
     private MyCollectionAdapter adapter;
     private List<MyCollection> datalist;
+    private Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +100,9 @@ public class collection extends AppCompatActivity {
                     adapter = new MyCollectionAdapter(data);
                     //设置到RecyclerView中
                     myCollectionList.setAdapter(adapter);
+                    ItemTouchHelper.Callback callback = new myItemTouchHelperCallBack(adapter,context,"确定删除此这篇收藏吗？");
+                    ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+                    touchHelper.attachToRecyclerView(myCollectionList);
                     initListener();
                 }
             }

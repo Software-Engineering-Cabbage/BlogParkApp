@@ -11,10 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.my_test6.R;
 import com.example.my_test6.user_module.ItemBean.ItemMyBlog;
+import com.example.my_test6.user_module.ItemTouchHelper.ItemTouchHelperAdapter;
 
 import java.util.ArrayList;
 
-public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolder> {
+public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolder> implements ItemTouchHelperAdapter {
     private final ArrayList<ItemMyBlog> mData;
     private MyBlogAdapter.OnItemClickListener clickListener;
 
@@ -48,6 +49,17 @@ public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolde
     public void setOnItemClickListener(MyBlogAdapter.OnItemClickListener listener) {
         //设置一个Item的监听器
         clickListener = listener;
+    }
+
+    @Override
+    public void onItemDelete(int position) {
+        mData.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    @Override
+    public void onItemRefresh(int position) {
+        notifyItemChanged(position);
     }
 
     public interface OnItemClickListener {
