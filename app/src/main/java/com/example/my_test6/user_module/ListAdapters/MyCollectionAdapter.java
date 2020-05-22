@@ -1,5 +1,8 @@
 package com.example.my_test6.user_module.ListAdapters;
 
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -7,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.my_test6.Pool.netWork.DeleteApi;
 import com.example.my_test6.R;
 import com.example.my_test6.user_module.ItemBean.ItemCollection;
 import com.example.my_test6.user_module.ItemTouchHelper.ItemTouchHelperAdapter;
@@ -52,6 +56,20 @@ public class MyCollectionAdapter extends RecyclerView.Adapter<MyCollectionAdapte
 
     @Override
     public void onItemDelete(int position) {
+        ItemCollection del = mData.get(position);
+        String url = "https://api.cnblogs.com/api/bookmarks/" + del.Id;
+        DeleteApi delapi = new DeleteApi();
+        @SuppressLint("HandlerLeak")
+        final Handler handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                if(msg.what == 1){
+                    //删除成功
+                    System.out.println("成功删除");
+                }
+            }
+        };
+        delapi.Delete(handler, url,1);
         mData.remove(position);
         notifyItemRemoved(position);
     }

@@ -64,30 +64,14 @@ public class collection extends AppCompatActivity {
             public void handleMessage(@NonNull Message msg) {
                 if(msg.what == 1){
                     Gson gson = new Gson();
-                    String json1 = (String) msg.obj;
-                    String json = "";
-                    int j = 0;
-                    int len = json1.length();
-                    for(int i = 0;i < len;i++){
-                        if(json1.charAt(i) == '['){
-                            if(i == 0){
-                                continue;
-                            }
-                            json = json + json1.substring(j,i) + "\"\"";
-                        }
-                        else if(json1.charAt(i) == ']'){
-                            if(i == len - 1){
-                                json = json + json1.substring(j,i + 1);
-                            }
-                            j = i+1;
-                        }
-                    }
+                    String json = (String) msg.obj;
                     System.out.println("json: " + json);
                     datalist = gson.fromJson(json, new TypeToken<List<MyCollection>>() {
                     }.getType());
                     for (int i = 0; i < datalist.size(); i++) {
                         MyCollection collection = datalist.get(i);
                         ItemCollection icollection = new ItemCollection();
+                        icollection.Id = collection.WzLinkId;
                         icollection.title = collection.Title;
                         icollection.Abstract = collection.Summary;
                         icollection.time = collection.DateAdded;
