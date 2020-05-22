@@ -32,7 +32,6 @@
         <activity android:name=".user_module.Item_web" />
         <activity android:name=".user_module.web" />
         <activity android:name=".Pool.login" />
-        <activity android:name=".user_module.logout" />
         <activity android:name=".user_module.browse" />
         <activity android:name=".user_module.collection" />
         <activity android:name=".user_module.about" />

@@ -21,7 +21,6 @@ import com.example.my_test6.user_module.GsonBean.MyBlogList;
 import com.example.my_test6.user_module.GsonBean.MyBlogs;
 import com.example.my_test6.user_module.GsonBean.Users;
 import com.example.my_test6.user_module.ItemBean.ItemMyBlog;
-import com.example.my_test6.user_module.ItemTouchHelper.myItemTouchHelperCallBack;
 import com.example.my_test6.user_module.ListAdapters.MyBlogAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -65,10 +64,6 @@ public class myblog extends AppCompatActivity {
                     }
                     mAdapter = new MyBlogAdapter(mdata);
                     recyclerView.setAdapter(mAdapter);
-                    ItemTouchHelper.Callback callback = new myItemTouchHelperCallBack(mAdapter,context,"确定删除这篇博客吗？");
-                    ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
-                    touchHelper.attachToRecyclerView(recyclerView);
-
                     initListener();
                 }
             }
