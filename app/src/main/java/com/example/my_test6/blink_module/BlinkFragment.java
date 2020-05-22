@@ -43,6 +43,7 @@ public class BlinkFragment extends Fragment {
         fragmentList.add(new DeliverFragment());
         TabLayout tab_layout = root.findViewById(R.id.tab_layout);
         ViewPager viewPager = root.findViewById(R.id.viewPager);
+        viewPager.setOffscreenPageLimit(7);
         MyAdapter fragmentAdater = new MyAdapter(getChildFragmentManager(),fragmentList); //    注意使用getChildFragmentManager()
         viewPager.setAdapter(fragmentAdater);
         tab_layout.setupWithViewPager(viewPager);
