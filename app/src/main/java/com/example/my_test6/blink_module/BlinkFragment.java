@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.my_test6.R;
@@ -22,7 +23,6 @@ import java.util.List;
 
 public class BlinkFragment extends Fragment {
     static final int NUM_ITEMS = 4;
-    private List<Fragment> fragmentList = new ArrayList<Fragment>();
     private String[] strings = new String[]{"推荐", "关注", "我的", "发布"};
     public static final String TAG = "BlinkFragment";
 
@@ -36,13 +36,14 @@ public class BlinkFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.blink_fragment_home, container, false);
+        ArrayList fragmentList = new ArrayList<Fragment>();
         fragmentList.add(new RecommendFragment());
         fragmentList.add(new AttentionFragment());
         fragmentList.add(new MineFragment());
         fragmentList.add(new DeliverFragment());
         TabLayout tab_layout = root.findViewById(R.id.tab_layout);
         ViewPager viewPager = root.findViewById(R.id.viewPager);
-        MyAdapter fragmentAdater = new MyAdapter(getChildFragmentManager()); //    注意使用getChildFragmentManager()
+        MyAdapter fragmentAdater = new MyAdapter(getChildFragmentManager(),fragmentList); //    注意使用getChildFragmentManager()
         viewPager.setAdapter(fragmentAdater);
         tab_layout.setupWithViewPager(viewPager);
         Log.d(TAG, "onCreateView: ");
@@ -50,9 +51,11 @@ public class BlinkFragment extends Fragment {
     }
 
 
-    public class MyAdapter extends FragmentPagerAdapter {
-        public MyAdapter(FragmentManager fm) {
+    public class MyAdapter extends FragmentStatePagerAdapter {
+        private ArrayList<Fragment> viewLists;
+        public MyAdapter(FragmentManager fm,ArrayList<Fragment> list) {
             super(fm);
+            viewLists = list;
         }
 
         @Override
@@ -62,7 +65,7 @@ public class BlinkFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            return fragmentList.get(position);
+            return viewLists.get(position);
         }
 
         @Nullable
@@ -71,9 +74,7 @@ public class BlinkFragment extends Fragment {
             return strings[position];
         }
 
-        @Override
-        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        }
     }
 
 }
+
