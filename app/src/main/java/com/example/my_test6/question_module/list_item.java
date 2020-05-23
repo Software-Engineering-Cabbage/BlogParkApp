@@ -1,7 +1,7 @@
 package com.example.my_test6.question_module;
 
 public class list_item {
-    private int Qid;
+    public int Qid;
     private int DealFlag;
     private int ViewCount;
     private String Title;

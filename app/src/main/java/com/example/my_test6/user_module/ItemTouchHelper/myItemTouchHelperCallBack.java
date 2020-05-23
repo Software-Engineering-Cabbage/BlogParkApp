@@ -42,7 +42,7 @@ public class myItemTouchHelperCallBack extends ItemTouchHelper.Callback{
     @Override
     public boolean isLongPressDragEnabled() {
         //该方法返回值为true时，表示支持长按ItemView拖动
-        return true;
+        return false;
     }
 
     @Override

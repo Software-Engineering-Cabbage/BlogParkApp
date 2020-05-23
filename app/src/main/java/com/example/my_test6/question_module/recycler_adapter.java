@@ -1,6 +1,9 @@
 package com.example.my_test6.question_module;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,12 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.my_test6.Pool.netWork.DeleteApi;
 import com.example.my_test6.R;
+import com.example.my_test6.user_module.ItemBean.ItemCollection;
+import com.example.my_test6.user_module.ItemTouchHelper.ItemTouchHelperAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myviewholder> {
+public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myviewholder> implements ItemTouchHelperAdapter {
 
     private List<list_item> list_items = new ArrayList<>();
     private Context context;
@@ -57,6 +63,32 @@ public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myvi
 
     public void setOnItemClickListener(OnItemClickListener l) {
         this.mlistener = l;
+    }
+
+    @Override
+    public void onItemDelete(int position) {
+        list_item del = list_items.get(position);
+        String url = "https://api.cnblogs.com/api/questions/" + del.Qid;
+        System.out.println("Id为： " + del.Qid);
+        DeleteApi delapi = new DeleteApi();
+        @SuppressLint("HandlerLeak")
+        final Handler handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                if(msg.what == 1){
+                    //删除成功
+                    String json = (String)msg.obj;
+                }
+            }
+        };
+        delapi.Delete(handler, url,1);
+        list_items.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    @Override
+    public void onItemRefresh(int position) {
+        notifyItemChanged(position);
     }
 
     class Myviewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
