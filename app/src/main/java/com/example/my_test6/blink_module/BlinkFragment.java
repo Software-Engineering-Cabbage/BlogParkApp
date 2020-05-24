@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -19,7 +18,6 @@ import com.example.my_test6.R;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BlinkFragment extends Fragment {
     static final int NUM_ITEMS = 4;
@@ -78,4 +76,3 @@ public class BlinkFragment extends Fragment {
     }
 
 }
-

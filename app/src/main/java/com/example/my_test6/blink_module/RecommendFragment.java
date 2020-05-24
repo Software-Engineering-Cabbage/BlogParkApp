@@ -10,7 +10,7 @@ import com.example.my_test6.Pool.netWork.GetApi;
 public class RecommendFragment extends BlinkFatherFragment{
 
     public  RecommendFragment () {
-        super("all", 1, 50, "1", R.layout.blink_fragment_recommend, R.id.recommend_list);
+        super("all", 1, 10, "1", R.layout.blink_fragment_recommend, R.id.recommend_refreshLayout,R.id.recommend_list);
     }
 
 

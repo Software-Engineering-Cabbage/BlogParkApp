@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".blink_module.MineLoginFragment">
-
+    tools:context=".blink_module.ResponseDetailActivity">
     <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/mine_refreshLayout"
+        android:id="@+id/response_refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <ListView
-        android:id="@+id/mine_list"
+        android:id="@+id/response_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >

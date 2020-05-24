@@ -34,7 +34,7 @@ public class MineFragment extends Fragment {
     }
 
     private void setUI(){
-        if(TokenPool.getTokenPool().isLogin){
+        if(TokenPool.getTokenPool().isLogin()){
             FragmentManager fragmentManager = getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.mine_frame,new MineLoginFragment());

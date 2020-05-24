@@ -34,7 +34,7 @@ public class AttentionFragment extends Fragment {
     }
 
     private void setUI(){
-        if(TokenPool.getTokenPool().isLogin){
+        if(TokenPool.getTokenPool().isLogin()){
             FragmentManager fragmentManager = getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.attention_frame,new AttentionLoginFragment());

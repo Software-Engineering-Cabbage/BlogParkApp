@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".blink_module.RecommendFragment">
 
-    <com.handmark.pulltorefresh.library.PullToRefreshListView
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recommend_refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
         android:id="@+id/recommend_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-    </com.handmark.pulltorefresh.library.PullToRefreshListView>
-
+        </ListView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </RelativeLayout>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -19,7 +21,26 @@ public class WebViewActivity extends AppCompatActivity {
         Intent intent  = getIntent();
         url = intent.getStringExtra("url");
         web_display = findViewById(R.id.web_display);
+        web_display.canGoBack();
+        web_display.canGoForward();
+        WebSettings webSettings = web_display.getSettings();
+        webSettings.setBuiltInZoomControls(true);     
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);    
+        webSettings.setUseWideViewPort(true);     
+        webSettings.setLoadWithOverviewMode(true);   
+        webSettings.setSavePassword(true);    
+        webSettings.setSaveFormData(true);     
+        webSettings.setJavaScriptEnabled(true);     
         web_display.loadUrl(url);
         web_display.setWebViewClient(new WebViewClient());
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if((keyCode == KeyEvent.KEYCODE_BACK)&&web_display.canGoBack()){
+            web_display.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

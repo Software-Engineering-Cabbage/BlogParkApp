@@ -2,7 +2,6 @@ package com.example.my_test6.blink_module;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.IdRes;
@@ -25,9 +24,10 @@ import com.example.my_test6.blink_module.adapter.blinkListAdapter;
 import com.example.my_test6.blink_module.blinkBean.blinkInfo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.handmark.pulltorefresh.library.ILoadingLayout;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -53,12 +53,16 @@ public class BlinkFatherFragment extends Fragment {
 
     //  get请求的url的字段，表示闪存tag
     private String tag ;
-    private PullToRefreshListView refreshListView;
+    private ListView listView;
 
     //  onCreate时加载的layout
     @LayoutRes
     int layout;
 
+    //  layout上的组件
+    @IdRes
+    int smartFresh;
+    
     //  layout上的组件
     @IdRes
     int blinkList;
@@ -72,18 +76,22 @@ public class BlinkFatherFragment extends Fragment {
     //  所在的Activity
     private Activity mActivity;
 
+    //  所在view
+    private View rootView;
+
     private static String TAG = "BlinkFatherFragment";
 
     public BlinkFatherFragment() {
         // Required empty public constructor
     }
 
-    public BlinkFatherFragment(String type, Integer pageIndex, Integer pageSize, String tag, @LayoutRes int layout, @IdRes int blinkList) {
+    public BlinkFatherFragment(String type, Integer pageIndex, Integer pageSize, String tag, @LayoutRes int layout, @IdRes int smartFresh, @IdRes int blinkList) {
         this.type = type;
         this.pageIndex = pageIndex;
         this.pageSize = pageSize;
         this.tag = tag;
         this.layout = layout;
+        this.smartFresh = smartFresh;
         this.blinkList = blinkList;
     }
 
@@ -92,19 +100,22 @@ public class BlinkFatherFragment extends Fragment {
         public void handleMessage(Message msg) {
             //  将get到的请求转化为blinkInfoList的内容
             String s = (String) msg.obj;
+            Log.d(TAG, "handleMessage: "+s);
             Type blinkListType = new TypeToken<ArrayList<blinkInfo>>() {
             }.getType();
             List<blinkInfo> blinkInfoList_temp;
             Gson gson = new Gson();
             blinkInfoList_temp = gson.fromJson(s, blinkListType);
-            blinkInfoList.addAll(blinkInfoList_temp);
 
             if (msg.what == BLINK_INIT) {
                 Log.d("BlinkFatherFragment", "handleMessage: "+type+" "+mActivity);
+                blinkInfoList.clear();
+                blinkInfoList.addAll(blinkInfoList_temp);
                 blinkListAdapter = new blinkListAdapter(mActivity, blinkInfoList);
-                refreshListView.setAdapter(blinkListAdapter);
+                listView.setAdapter(blinkListAdapter);
             }
             if (msg.what == BLINK_ADD) {
+                blinkInfoList.addAll(blinkInfoList_temp);
                 blinkListAdapter.notifyDataSetChanged();
             }
         }
@@ -119,7 +130,7 @@ public class BlinkFatherFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate: ");
+        Log.d(TAG, "onCreate: "+type);
         super.onCreate(savedInstanceState);
         getBlink(handler, type, pageIndex.toString(), pageSize.toString(), tag, BLINK_INIT);
     }
@@ -128,67 +139,31 @@ public class BlinkFatherFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(layout, container, false);
-        refreshListView = (PullToRefreshListView) view.findViewById(blinkList);
-        //设置可上拉刷新和下拉刷新
-        refreshListView.setMode(PullToRefreshBase.Mode.BOTH);
-        //设置刷新时显示的文本
-        ILoadingLayout startLayout = refreshListView.getLoadingLayoutProxy(true, false);
-        startLayout.setPullLabel("正在下拉刷新...");
-        startLayout.setRefreshingLabel("正在玩命加载中...");
-        startLayout.setReleaseLabel("放开以刷新");
+        rootView = inflater.inflate(layout, container, false);
+        setUI();
+        return rootView;
+    }
 
-        ILoadingLayout endLayout = refreshListView.getLoadingLayoutProxy(false, true);
-        endLayout.setPullLabel("正在上拉刷新...");
-        endLayout.setRefreshingLabel("正在玩命加载中...");
-        endLayout.setReleaseLabel("放开以刷新");
-        refreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+    public void setUI(){
+        listView = (ListView) rootView.findViewById(blinkList);
+        RefreshLayout refreshLayout = (RefreshLayout)rootView.findViewById(smartFresh);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
-            public void onPullDownToRefresh(final PullToRefreshBase<ListView> refreshView) {
-                new AsyncTask<Void, Void, Void>() {
-                    @Override
-                    protected Void doInBackground(Void... params) {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }
-
-                    protected void onPostExecute(Void result) {
-                        blinkInfoList.clear();
-                        pageIndex = 1;
-                        getBlink(handler, type, pageIndex.toString(), pageSize.toString(), "2", BLINK_ADD);
-                        refreshView.onRefreshComplete();
-                    }
-                }.execute();
-            }
-
-            @Override
-            public void onPullUpToRefresh(final PullToRefreshBase<ListView> refreshView) {
-                new AsyncTask<Void, Void, Void>() {
-                    @Override
-                    protected Void doInBackground(Void... params) {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }
-
-                    protected void onPostExecute(Void result) {
-                        pageIndex ++;
-                        getBlink(handler, type, pageIndex.toString(), pageSize.toString(), "2", BLINK_ADD);
-                        refreshView.onRefreshComplete();
-                    }
-
-                    ;
-                }.execute();
+            public void onRefresh(RefreshLayout refreshLayout) {
+                blinkInfoList.clear();
+                pageIndex = 1;
+                getBlink(handler, type, pageIndex.toString(), pageSize.toString(), "2", BLINK_ADD);
+                refreshLayout.finishRefresh();
             }
         });
-        return view;
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                pageIndex ++;
+                getBlink(handler, type, pageIndex.toString(), pageSize.toString(), "2", BLINK_ADD);
+                refreshLayout.finishLoadMore();
+            }
+        });
     }
 
     public void getBlink(final Handler handler, String type, String pageIndex, String pageSize, String tag, final int what) {
@@ -198,4 +173,5 @@ public class BlinkFatherFragment extends Fragment {
         GetUserApi getUserApi = new GetUserApi();
         getUserApi.getMyApi(handler, url, what);
     }
+
 }

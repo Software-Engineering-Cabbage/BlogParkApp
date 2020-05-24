@@ -1,25 +1,21 @@
 package com.example.my_test6.blink_module.blinkBean;
 
-public class blinkInfo {
+public class blinkResponseInfo {
     String Id;
     String Content;
-    String IsPrivate;
-    String IsLucky;
-    String CommentCount;
     String DateAdded;
+    String StatusId;
     String UserAlias;
     String UserDisplayName;
     String UserIconUrl;
     String UserId;
     String UserGuid;
 
-    public blinkInfo(String id, String content, String isPrivate, String isLucky, String commentCount, String dateAdded, String userAlias, String userDisplayName, String userIconUrl, String userId, String userGuid) {
+    public blinkResponseInfo(String id, String content, String dateAdded, String statusId, String userAlias, String userDisplayName, String userIconUrl, String userId, String userGuid) {
         Id = id;
         Content = content;
-        IsPrivate = isPrivate;
-        IsLucky = isLucky;
-        CommentCount = commentCount;
         DateAdded = dateAdded;
+        StatusId = statusId;
         UserAlias = userAlias;
         UserDisplayName = userDisplayName;
         UserIconUrl = userIconUrl;
@@ -43,30 +39,6 @@ public class blinkInfo {
         Content = content;
     }
 
-    public String getIsPrivate() {
-        return IsPrivate;
-    }
-
-    public void setIsPrivate(String isPrivate) {
-        IsPrivate = isPrivate;
-    }
-
-    public String getIsLucky() {
-        return IsLucky;
-    }
-
-    public void setIsLucky(String isLucky) {
-        IsLucky = isLucky;
-    }
-
-    public String getCommentCount() {
-        return CommentCount;
-    }
-
-    public void setCommentCount(String commentCount) {
-        CommentCount = commentCount;
-    }
-
     public String getDateAdded() {
         String Date_temp = DateAdded.substring(0,16);
         char[] Date = Date_temp.toCharArray();
@@ -76,6 +48,14 @@ public class blinkInfo {
 
     public void setDateAdded(String dateAdded) {
         DateAdded = dateAdded;
+    }
+
+    public String getStatusId() {
+        return StatusId;
+    }
+
+    public void setStatusId(String statusId) {
+        StatusId = statusId;
     }
 
     public String getUserAlias() {

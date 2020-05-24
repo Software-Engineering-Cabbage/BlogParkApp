@@ -11,7 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.my_test6.R;
-import com.example.my_test6.Pool.login;
+import com.example.my_test6.user.login;
+
 
 /**
  * A simple {@link Fragment} subclass.
