@@ -49,6 +49,8 @@ public class QuestionFragment extends Fragment {
         aList.add(new gaofen_fragment());
         aList.add(new yijiejue_fragment());
         aList.add(new wode_fragment());
+        aList.add(new guanzhu_fragment());
+        aList.add(new lishi_fragment());
         mypageradapter madapter = new mypageradapter(getChildFragmentManager(),aList);
         viewPager.setAdapter(madapter);
         //problemtabs.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -84,13 +86,15 @@ public class QuestionFragment extends Fragment {
             tabs.add("高分");
             tabs.add("已解决");
             tabs.add("我的");
+            tabs.add("关注");
+            tabs.add("历史");
 
             viewLists = list;
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return 6;
         }
 
         @NonNull
