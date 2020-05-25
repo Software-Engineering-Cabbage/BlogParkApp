@@ -23,6 +23,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.my_test6.Pool.MinePool;
 import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.R;
@@ -50,8 +52,7 @@ public class UserFragment extends Fragment {
     private TextView ageNum;
     private TextView age;
     private TextView name;
-    private ImageView head1;
-    private ImageView head2;
+    private ImageView head;
     private String Usertoken;
     private boolean isLogin;
     private Users users;
@@ -73,8 +74,7 @@ public class UserFragment extends Fragment {
         ageNum = root.findViewById(R.id.UserageNum);
         age = root.findViewById(R.id.Userage);
         name = root.findViewById(R.id.Username);
-        head1 = root.findViewById(R.id.UserHeadImage);
-        head2 = root.findViewById(R.id.Userhead);
+        head = root.findViewById(R.id.Userhead);
         sp = getActivity().getSharedPreferences("User",Context.MODE_PRIVATE);
         editor = sp.edit();
         setUI();
@@ -114,7 +114,7 @@ public class UserFragment extends Fragment {
                         //设置未完成UI
                         ageNum.setText(users.Seniority);
                         name.setText(users.DisplayName);
-                        Glide.with(head2.getContext()).load(users.Face).into(head2);
+                        Glide.with(head.getContext()).load(users.Face).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(head);
                         System.out.println("blogApp: " + users.BlogApp);
                         //博客信息
                         @SuppressLint("HandlerLeak")
@@ -215,7 +215,6 @@ public class UserFragment extends Fragment {
                     showCoverDialog();
                 }
             });
-            head1.setImageResource(R.drawable.circle);
             attention.setText("我的博客");
             age.setText("我的园龄");
         }
@@ -303,8 +302,7 @@ public class UserFragment extends Fragment {
             ageNum.setText("");
             attention.setText("");
             attentionNum.setText("");
-            head1.setImageResource(R.drawable.head);
-            head2.setImageResource(R.drawable.head);
+            head.setImageResource(R.drawable.head);
         }
     }
     private void showCoverDialog(){

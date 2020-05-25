@@ -131,6 +131,7 @@ public class wode_fragment extends Fragment {
         getuserApi = new GetUserApi();
         String url = "https://api.cnblogs.com/api/questions/@myquestion?pageIndex=1&pageSize=35&spaceUserId="
                 + MinePool.getMinePool().users.SpaceUserId;
+        System.out.println("SpaceUserId " + MinePool.getMinePool().users.SpaceUserId);
         getuserApi.getMyApi(handler,url,GET_Question);
     }
 }

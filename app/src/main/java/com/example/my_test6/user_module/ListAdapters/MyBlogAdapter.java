@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.my_test6.R;
 import com.example.my_test6.user_module.ItemBean.ItemMyBlog;
 import com.example.my_test6.user_module.ItemTouchHelper.ItemTouchHelperAdapter;
@@ -102,7 +104,7 @@ public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolde
             author.setText(itembean.author);
             Abstract.setText(itembean.Abstract);
             time.setText(itembean.time);
-            Glide.with(head.getContext()).load(itembean.head).into(head);
+            Glide.with(head.getContext()).load(itembean.head).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(head);
     }
     }
 }

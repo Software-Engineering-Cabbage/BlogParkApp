@@ -46,16 +46,16 @@
                 android:text="bulabulabula"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:layout_below="@id/item_Homework_blogtitle"/>
+                android:layout_below="@id/item_Homework_read"/>
 
             <TextView
                 android:id="@+id/item_Homework_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:paddingStart="10dp"
                 android:paddingBottom="5dp"
-                android:layout_toLeftOf="@+id/item_Homework_read"
+                android:layout_toStartOf="@+id/item_Homework_read"
+                android:layout_below="@+id/item_Homework_blogtitle"
                 android:text="提交：0"
                 android:textColor="#000000"
                 android:textSize="15sp" />
@@ -64,12 +64,12 @@
                 android:id="@+id/item_Homework_read"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="10dp"
                 android:paddingStart="10dp"
                 android:paddingBottom="5dp"
+                android:layout_below="@+id/item_Homework_blogtitle"
                 android:text="提交：0"
                 android:textColor="#000000"
                 android:textSize="15sp" />
@@ -97,12 +97,13 @@
                 android:layout_width="190dp"
                 android:layout_height="24dp"
                 android:layout_alignTop="@id/item_Homework_Userhead"
-                android:layout_marginLeft="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="TextView"
+                android:gravity="end"
                 android:layout_below="@+id/item_Homework_abstract"
-                android:layout_toRightOf="@+id/item_Homework_author"
                 />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
