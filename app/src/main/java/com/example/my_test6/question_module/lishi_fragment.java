@@ -26,6 +26,7 @@ import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class lishi_fragment extends Fragment {
@@ -33,11 +34,23 @@ public class lishi_fragment extends Fragment {
     private RecyclerView recyclerView;
     private recycler_adapter mAdapter;
     private LinearLayoutManager layoutManager;
-    private List<list_item> mdata;
 
     private static  final int GET_Question = 0x001;
     private static  final int REFRESH = 0x002;
     private static  final int LOADMORE = 0x003;
+
+    //lqx
+    private static LinkedList<list_item> histUrls = new LinkedList<>();
+
+
+
+    public static void addHistUrls(list_item li) {
+        histUrls.remove(li);
+        histUrls.addFirst(li);
+        if (histUrls.size() > 32) {
+            histUrls.remove(31);
+        }
+    }
 
     private int pageindex = 1;
 
@@ -47,27 +60,7 @@ public class lishi_fragment extends Fragment {
     private final Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case GET_Question:
-                    String text = (String)msg.obj;
-                    //Log.d("TAG",text);
-                    Gson gson = new Gson();
-                    List<list_item> questionList =gson.fromJson(text, new TypeToken<List<list_item>>(){}.getType());
-                    mdata = questionList;
-                    mAdapter.setList_items(mdata);
-                    break;
-                case LOADMORE:
-                    String moretext = (String)msg.obj;
-                    //Log.d("TAG",text);
-                    Gson moregson = new Gson();
-                    List<list_item> morequestionList =moregson.fromJson(moretext, new TypeToken<List<list_item>>(){}.getType());
-                    mAdapter.addList_items(morequestionList);
-                    mAdapter.setList_items(mdata);
-                    break;
-                default:
-                    break;
-            }
+            mAdapter.setList_items(histUrls);
         }
     };
 
@@ -106,13 +99,13 @@ public class lishi_fragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new recycler_adapter(getActivity(),mdata);
+        mAdapter = new recycler_adapter(getActivity(),histUrls);
         mAdapter.setOnItemClickListener(new recycler_adapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(getActivity(),QuestionDetail_activity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("question_addr", mdata.get(position).getQUrl());
+                bundle.putString("question_addr", histUrls.get(position).getQUrl());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

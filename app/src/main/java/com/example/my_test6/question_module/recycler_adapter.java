@@ -15,15 +15,25 @@ import com.example.my_test6.R;
 import java.util.ArrayList;
 import java.util.List;
 
+//lqx
+import java.util.LinkedList;
+
 public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myviewholder> {
 
     private List<list_item> list_items = new ArrayList<>();
+    private LinkedList<String> urlItems = new LinkedList<>();
     private Context context;
     private OnItemClickListener mlistener;
 
     public recycler_adapter(Context c, List<list_item> li) {
         this.context = c;
         this.list_items = li;
+    }
+
+    //lqx
+    public recycler_adapter(Context c, LinkedList<String> ui) {
+        this.context = c;
+        this.urlItems = ui;
     }
 
     public void setList_items(List<list_item> data) {
@@ -33,6 +43,12 @@ public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myvi
 
     public void addList_items(List<list_item> data) {
         list_items.addAll(data);
+        notifyDataSetChanged();
+    }
+
+    //lqx
+    public void setUrlItems(LinkedList<String> urls) {
+        urlItems = urls;
         notifyDataSetChanged();
     }
 
@@ -52,7 +68,6 @@ public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myvi
     public int getItemCount() {
         if (list_items != null) return list_items.size();
         return 0;
-
     }
 
     public void setOnItemClickListener(OnItemClickListener l) {

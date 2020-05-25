@@ -108,6 +108,7 @@ public class wode_fragment extends Fragment {
                     Intent intent = new Intent(getActivity(), QuestionDetail_activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("question_addr", mdata.get(position).getQUrl());
+                    lishi_fragment.addHistUrls(mdata.get(position));
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
@@ -120,6 +121,7 @@ public class wode_fragment extends Fragment {
         getuserApi = new GetUserApi();
         String url = "https://api.cnblogs.com/api/questions/@myquestion?pageIndex=1&pageSize=35&spaceUserId="
                 + MinePool.getMinePool().users.SpaceUserId;
+        Log.d("TAG", "userid is " + MinePool.getMinePool().users.SpaceUserId);
         getuserApi.getMyApi(handler,url,GET_Question);
     }
 }

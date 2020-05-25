@@ -113,6 +113,7 @@ public class gaofen_fragment extends Fragment {
                 Intent intent = new Intent(getActivity(),QuestionDetail_activity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("question_addr", mdata.get(position).getQUrl());
+                lishi_fragment.addHistUrls(mdata.get(position));
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
