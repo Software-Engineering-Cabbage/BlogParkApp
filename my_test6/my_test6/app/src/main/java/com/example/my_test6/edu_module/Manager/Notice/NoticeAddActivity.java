@@ -66,11 +66,11 @@ public class NoticeAddActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PatchApi patchApi=new PatchApi();
+                PostUserApi postUserApi=new PostUserApi();
                 String bodyString="{schoolClassId:"+id+",content:\""+content.getText()+"\"}";
                 System.out.println(bodyString);
                 RequestBody body=RequestBody.create(bodyString,mediaType);
-                patchApi.patch(handler,"https://api.cnblogs.com/api/edu/bulletin/modify/"+ Pool.getMinePool().bulletinid,body,0);
+                postUserApi.postMyApi(handler,"https://api.cnblogs.com/api/edu/bulletin/publish",body,0);
             }
         });
     }

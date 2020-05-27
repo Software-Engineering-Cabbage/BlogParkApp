@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="30dp"
-        android:text="暂时没有班级公告..." />
+        android:text="暂时没有班级公告..."
+        android:visibility="invisible"/>
 
 
 </FrameLayout>

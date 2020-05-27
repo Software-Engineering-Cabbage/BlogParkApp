@@ -16,6 +16,8 @@ import android.widget.EditText;
 
 import com.example.my_test6.R;
 import com.example.my_test6.edu_module.Manager.Member.ReturnMessage;
+import com.example.my_test6.edu_module.Manager.Pool;
+import com.example.my_test6.netWork.PatchApi;
 import com.example.my_test6.netWork.PostUserApi;
 import com.google.gson.Gson;
 
@@ -64,11 +66,11 @@ public class NoticeModifyActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PostUserApi postUserApi=new PostUserApi();
+                PatchApi patchApi=new PatchApi();
                 String bodyString="{schoolClassId:"+id+",content:\""+content.getText()+"\"}";
                 System.out.println(bodyString);
                 RequestBody body=RequestBody.create(bodyString,mediaType);
-                postUserApi.postMyApi(handler,"https://api.cnblogs.com/api/edu/bulletin/publish",body,0);
+                patchApi.patch(handler,"https://api.cnblogs.com/api/edu/bulletin/modify/"+ Pool.getMinePool().bulletinid,body,0);
             }
         });
     }
