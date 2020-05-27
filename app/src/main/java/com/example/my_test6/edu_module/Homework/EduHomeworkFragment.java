@@ -66,6 +66,12 @@ public class EduHomeworkFragment extends Fragment {
                         String title=homeworksList.get(i).getTitle();
                         String date=homeworksList.get(i).getDisplayTime().split("T")[0];
                         ClassNotice classHomework=new ClassNotice(title,date);
+                        classHomework.detail = homeworksList.get(i).getDescription();
+                        classHomework.head = homeworksList.get(i).getAvatarUrl();
+                        classHomework.submit = homeworksList.get(i).getAnswerCount();
+                        classHomework.src = (homeworksList.get(i).getIsClosed().equals("true"))?1:0;
+                        classHomework.author = homeworksList.get(i).getDisplayName();
+                        System.out.println("head:" + classHomework.head);
                         classHomeworkList.add(classHomework);
                     }
                     pagenumber=count/100;
@@ -84,6 +90,11 @@ public class EduHomeworkFragment extends Fragment {
                                         String title=homeworksList.get(i).getTitle();
                                         String date=homeworksList.get(i).getDisplayTime().split("T")[0];
                                         ClassNotice classHomework=new ClassNotice(title,date);
+                                        classHomework.detail = homeworksList.get(i).getDescription();
+                                        classHomework.head = homeworksList.get(i).getAvatarUrl();
+                                        classHomework.submit = homeworksList.get(i).getAnswerCount();
+                                        classHomework.src = (homeworksList.get(i).getIsClosed().equals("true"))?1:0;
+                                        classHomework.author = homeworksList.get(i).getDisplayName();
                                         classHomeworkList.add(classHomework);
                                     }
                                 }
@@ -92,13 +103,18 @@ public class EduHomeworkFragment extends Fragment {
                                         String title=homeworksList.get(i).getTitle();
                                         String date=homeworksList.get(i).getDisplayTime().split("T")[0];
                                         ClassNotice classHomework=new ClassNotice(title,date);
+                                        classHomework.detail = homeworksList.get(i).getDescription();
+                                        classHomework.head = homeworksList.get(i).getAvatarUrl();
+                                        classHomework.submit = homeworksList.get(i).getAnswerCount();
+                                        classHomework.src = (homeworksList.get(i).getIsClosed().equals("true"))?1:0;
+                                        classHomework.author = homeworksList.get(i).getDisplayName();
                                         classHomeworkList.add(classHomework);
                                     }
                                 }
 
                             }
                             temp[0]++;
-                            NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.edu_class_notice, classHomeworkList);
+                            NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.user_item_homework, classHomeworkList);
                             listView.setAdapter(homeworkAdapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
@@ -117,7 +133,7 @@ public class EduHomeworkFragment extends Fragment {
                         }
                     }
                     else{
-                        NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.edu_class_notice, classHomeworkList);
+                        NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.user_item_homework, classHomeworkList);
                         listView.setAdapter(homeworkAdapter);
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override

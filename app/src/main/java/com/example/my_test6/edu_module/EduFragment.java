@@ -76,7 +76,7 @@ public class EduFragment extends Fragment {
         }
         else{
             Intent intent = new Intent();
-            ComponentName componentname = new ComponentName("com.example.my_test6", "com.example.my_test6.ui.user.login");
+            ComponentName componentname = new ComponentName("com.example.my_test6", "com.example.my_test6.Pool.login");
             intent.setComponent(componentname);
             startActivity(intent);
         }

@@ -19,25 +19,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/BlogAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/BlogAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/ClassBlog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/ClassBlog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/EduBlogFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/EduBlogFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/ClassActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/ClassActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Homework/EduHomeworkFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Homework/EduHomeworkFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/EduMemberFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/EduMemberFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/MemberAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/MemberAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/EduNoticeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/EduNoticeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/ClassNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/ClassNotice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/NoticeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/NoticeAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_item_homework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_item_homework.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
