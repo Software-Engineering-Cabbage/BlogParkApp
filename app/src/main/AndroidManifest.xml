@@ -42,6 +42,12 @@
         <activity android:name=".edu_module.Class2Activity"/>
         <activity android:name=".edu_module.ClassActivity" />
         <activity android:name=".user_module.flash"/>
+        <activity android:name=".edu_module.Manager.Notice.NoticeModifyActivity"></activity>
+        <activity android:name=".edu_module.Manager.Notice.NoticeAddActivity" />
+        <activity android:name=".edu_module.Manager.Member.MemberModifyActivity" />
+        <activity android:name=".edu_module.Manager.Member.MemberDeleteActivity" />
+        <activity android:name=".edu_module.Manager.Member.MemberAddActivity" />
+        <activity android:name=".edu_module.Manager.ClassManagerActivity" />
     </application>
 
 </manifest>

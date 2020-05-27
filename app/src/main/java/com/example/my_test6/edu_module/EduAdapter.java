@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.my_test6.R;
 
 import java.util.List;
@@ -30,7 +32,7 @@ public class EduAdapter extends ArrayAdapter {
         ImageView imageView=view.findViewById(R.id.MemberImage);
         TextView textView=view.findViewById(R.id.MemberName);
         textView.setText(eduClass.getName());
-        Glide.with(imageView.getContext()).load(eduClass.getAvater()).into(imageView);
+        Glide.with(imageView.getContext()).load(eduClass.getAvater()).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(imageView);
         Log.d("Test",eduClass.getAvater());
         return view;
     }

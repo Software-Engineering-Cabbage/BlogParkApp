@@ -16,8 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.my_test6.R;
 import com.example.my_test6.Pool.netWork.GetUserApi;
+import com.example.my_test6.R;
 import com.example.my_test6.edu_module.Class2Activity;
 import com.example.my_test6.edu_module.Notice.ClassNotice;
 import com.example.my_test6.edu_module.Notice.NoticeAdapter;
@@ -34,7 +34,7 @@ public class EduHomeworkFragment extends Fragment {
     private int count;
     private int pagenumber;
     private List<Homeworks> homeworksList;
-    private List<ClassNotice> classHomeworkList=new ArrayList<>();
+    private List<ClassNotice> classHomeworkList;
     final GetUserApi getApi=new GetUserApi();
     public EduHomeworkFragment(int id){
         this.id=id;
@@ -44,6 +44,7 @@ public class EduHomeworkFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root=inflater.inflate(R.layout.edu_fragment_edu_homework, container, false);
+        classHomeworkList=new ArrayList<>();
         @SuppressLint("HandlerLeak")final Handler handler=new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {

@@ -13,8 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.my_test6.R;
 import com.example.my_test6.Pool.netWork.GetUserApi;
+import com.example.my_test6.R;
+import com.example.my_test6.edu_module.Manager.Pool;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -26,10 +27,11 @@ public class EduNoticeFragment extends Fragment {
     private int count;
     private NoticeList notice;
     private List<Bulletins> bulletins;
-    private List<ClassNotice> classNoticeList=new ArrayList<>();
+    private List<ClassNotice> classNoticeList;
     private int pagenumber;
-    final GetUserApi getApi=new GetUserApi();
     private String url;
+    private TextView textView;
+    private  View root;
     public EduNoticeFragment(int id,String url){
         this.id=id;
         this.url=url;
@@ -37,20 +39,22 @@ public class EduNoticeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View root=inflater.inflate(R.layout.edu_fragment_edu_notice, container, false);
+        root=inflater.inflate(R.layout.edu_fragment_edu_notice, container, false);
         // Inflate the layout for this fragment
+        /*classNoticeList=new ArrayList<>();
         @SuppressLint("HandlerLeak")final Handler handler=new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg){
                 super.handleMessage(msg);
                 String text=(String)msg.obj;
-                final TextView textView=root.findViewById(R.id.emptyNotice);
+                textView=root.findViewById(R.id.emptyNotice);
                 Gson gson=new Gson();
                 NoticeList notice=gson.fromJson(text,NoticeList.class);
                 if(notice!=null) {
                     count = notice.getTotalCount();
                     bulletins = notice.getBulletins();
                     int tempcount=100;
+                    Pool.getMinePool().bulletinid=Integer.parseInt(bulletins.get(0).getBulletinId());
                     if(count<100){
                         tempcount=count;
                     }
@@ -89,7 +93,7 @@ public class EduNoticeFragment extends Fragment {
                                 }
                             }
                             temp[0]++;
-                            textView.setText(classNoticeList.get(classNoticeList.size()-1).getContext());
+                            textView.setText(classNoticeList.get(0).getContext());
                         }
                     };
                     if(pagenumber>0){
@@ -98,12 +102,48 @@ public class EduNoticeFragment extends Fragment {
                         }
                     }
                     else{
-                        textView.setText(classNoticeList.get(classNoticeList.size()-1).getContext());
+                        for(int i=0;i<classNoticeList.size();i++) {
+                            System.out.println("createview:" + classNoticeList.get(i).getContext());
+                        }
+                        //textView.setText(classNoticeList.get(0).getContext());
                     }
                 }
             }
         };
-        getApi.getMyApi(handler,"https://api.cnblogs.com/api/edu/schoolclass/bulletins/"+id+"/1-100",0);
+        getApi.getMyApi(handler,"https://api.cnblogs.com/api/edu/schoolclass/bulletins/"+id+"/1-100",0);*/
         return root;
+    }
+    public void onResume() {
+        super.onResume();
+        classNoticeList=new ArrayList<>();
+        @SuppressLint("HandlerLeak")final Handler handler1=new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg){
+                super.handleMessage(msg);
+                String text=(String)msg.obj;
+                textView=root.findViewById(R.id.emptyNotice);
+                if(text!=null){
+                    textView.setText(text);
+                }
+                textView.setVisibility(View.VISIBLE);
+            }
+        };
+        @SuppressLint("HandlerLeak")final Handler handler=new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg){
+                super.handleMessage(msg);
+                String text=(String)msg.obj;
+                Gson gson=new Gson();
+                NoticeList notice=gson.fromJson(text,NoticeList.class);
+                if(notice!=null) {
+                    bulletins = notice.getBulletins();
+                    Pool.getMinePool().bulletinid=Integer.parseInt(bulletins.get(0).getBulletinId());
+                }
+            }
+        };
+        GetUserApi getUserApi=new GetUserApi();
+        getUserApi.getMyApi(handler1,"https://api.cnblogs.com/api/edu/bulletin/current/"+id,0);
+        GetUserApi getApi=new GetUserApi();
+        getApi.getMyApi(handler,"https://api.cnblogs.com/api/edu/schoolclass/bulletins/"+id+"/1-100",0);
     }
 }

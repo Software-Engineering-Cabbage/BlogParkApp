@@ -25,28 +25,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/user_module/myblog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/user_module/myblog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_activity_class.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_activity_class.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_class_blog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_class_blog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_class_member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_class_member.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_class_notice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_class_notice.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu_blog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu_blog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu_homework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu_homework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu_member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edu_fragment_edu_member.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_about.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_about.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_logout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_myhomework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_myhomework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_fragment_inbox.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_fragment_question.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_fragment_system_message.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_fragment_unread_message.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_item_collection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_item_collection.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_item_homework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_item_homework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/BlogAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/BlogAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/ClassBlog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/ClassBlog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/EduBlogFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Blog/EduBlogFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/ClassActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/ClassActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/EduFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Homework/EduHomeworkFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Homework/EduHomeworkFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/EduMemberFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/EduMemberFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/MemberAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Member/MemberAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/EduNoticeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/EduNoticeFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +45,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="emulator-5554" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -110,23 +101,23 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Android\my_test6_unit\app\src\main\res\layout" />
-      <recent name="D:\Android\my_test6_unit\app\src\main\java\com\example\my_test6\user_module\ItemTouchHelper" />
-      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module" />
-      <recent name="E:\6wenming\my_test6\app\src\main\res\layout" />
-      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\Pool" />
-    </key>
-    <key name="android.template.packageName">
-      <recent name="com.example.my_test6.home" />
-      <recent name="com.example.my_test6" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module\ListAdapters" />
       <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module\ItemBean" />
       <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module" />
       <recent name="E:\6wenming\my_test6\app\src\main\res\layout" />
       <recent name="E:\6wenming\my_test6\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="com.example.my_test6.home" />
+      <recent name="com.example.my_test6" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Android\my_test6_unit\app\src\main\res\layout" />
+      <recent name="D:\Android\my_test6_unit\app\src\main\java\com\example\my_test6\Pool\netWork" />
+      <recent name="D:\Android\my_test6_unit\app\src\main\java\com\example\my_test6\user_module\ItemTouchHelper" />
+      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module" />
+      <recent name="E:\6wenming\my_test6\app\src\main\res\layout" />
     </key>
   </component>
   <component name="RunDashboard">
