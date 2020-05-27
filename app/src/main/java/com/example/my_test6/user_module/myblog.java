@@ -74,7 +74,8 @@ public class myblog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_myblog);
-        setTitle("我的博客");
+        getSupportActionBar().hide();
+        //setTitle("我的博客");
         users = MinePool.getMinePool().users;
         myBlogs = MinePool.getMinePool().myblogs;
         recyclerView = findViewById(R.id.MyBlogRecyclerView);

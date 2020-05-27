@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_height="150dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:contentPaddingBottom="7dp"
+        app:contentPaddingLeft="15dp"
+        app:contentPaddingRight="15dp"
+        app:contentPaddingTop="7dp">
 
     <LinearLayout
         android:background="@android:color/white"
@@ -38,12 +49,11 @@
                 android:id="@+id/ClassBlogImg"
                 android:layout_marginLeft="20dp"
                 android:background="@android:color/holo_blue_dark"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
 
             <TextView
                 android:id="@+id/ClassBlogName"
-                android:textSize="20dp"
                 android:text="username"
                 android:layout_marginLeft="20dp"
                 android:layout_width="180dp"
@@ -57,10 +67,7 @@
                 android:text="发布时间"/>
 
         </LinearLayout>
-
-
-
-
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
