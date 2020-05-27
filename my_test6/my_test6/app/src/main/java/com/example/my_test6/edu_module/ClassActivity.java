@@ -67,7 +67,6 @@ public class ClassActivity extends AppCompatActivity {
                             intent.putExtra("id",id);
                             ComponentName componentname = new ComponentName("com.example.my_test6", "com.example.my_test6.edu_module.Manager.ClassManagerActivity");
                             intent.setComponent(componentname);
-                            System.out.println("id是"+id);
                             startActivity(intent);
                         }
                     });
@@ -100,4 +99,5 @@ public class ClassActivity extends AppCompatActivity {
         GetUserApi getUserApi=new GetUserApi();
         getUserApi.getMyApi(handler,"https://api.cnblogs.com/api/edu/member/"+MinePool.getMinePool().users.BlogId+"/"+id,0);
     }
+
 }

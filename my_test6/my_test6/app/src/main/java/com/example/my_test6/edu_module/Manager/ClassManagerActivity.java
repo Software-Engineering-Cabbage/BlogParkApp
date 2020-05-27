@@ -31,11 +31,9 @@ public class ClassManagerActivity extends AppCompatActivity {
         ViewPager viewPager=findViewById(R.id.EduManagerviewPager);
         TabLayout tabLayout=findViewById(R.id.EduManagertabLayout);
         final List<Fragment> fragments=new ArrayList<>();
-        final String[] title=new String[]{"公告","作业","成员","投票"};
-        fragments.add(new NoticeManagerFragment());
-        fragments.add(new HomeworkManagerFragment());
+        final String[] title=new String[]{"公告","成员"};
+        fragments.add(new NoticeManagerFragment(id));
         fragments.add(new MemberManagerFragment(id));
-        fragments.add(new VoteManagerFragment());
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(),FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
             @NonNull
             @Override

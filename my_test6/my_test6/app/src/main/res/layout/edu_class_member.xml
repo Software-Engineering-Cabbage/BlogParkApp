@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ImageView
         android:id="@+id/MemberImage"
         android:layout_width="68dp"
@@ -15,15 +14,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/MemberName"
-        android:layout_width="332dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="16dp"
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:text="TextView"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/MemberImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/MemberName"
+            android:layout_width="332dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="TextView"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/MemberImage"
+            app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,21 +3,20 @@ package com.example.my_test6.edu_module;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 public class myItemTouchHelperCallBack extends ItemTouchHelper.Callback{
     private ItemTouchHelperAdapter itemTouchHelperAdapter;
     private Context context;
-    private boolean deleteFlag;
+    private String title;
 
-    public myItemTouchHelperCallBack(ItemTouchHelperAdapter itemTouchHelperAdapter, Context context) {
+    public myItemTouchHelperCallBack(ItemTouchHelperAdapter itemTouchHelperAdapter, Context context, String title) {
         this.itemTouchHelperAdapter = itemTouchHelperAdapter;
         this.context = context;
+        this.title = title;
     }
 
     @Override
@@ -55,7 +54,7 @@ public class myItemTouchHelperCallBack extends ItemTouchHelper.Callback{
     private void showCoverDialog(final RecyclerView.ViewHolder viewHolder){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("提示");
-        builder.setMessage("确定删除该成员吗？");
+        builder.setMessage(title);
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -65,6 +64,7 @@ public class myItemTouchHelperCallBack extends ItemTouchHelper.Callback{
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                itemTouchHelperAdapter.onItemRefresh(viewHolder.getAdapterPosition());
             }
         });
         builder.show();

@@ -14,12 +14,18 @@ import android.widget.ListView;
 
 import com.example.my_test6.R;
 import com.example.my_test6.edu_module.ClassActivity;
+import com.example.my_test6.edu_module.Manager.Notice.NoticeAddActivity;
+import com.example.my_test6.edu_module.Manager.Notice.NoticeModifyActivity;
 
 import java.util.ArrayList;
 
 public class NoticeManagerFragment extends Fragment {
+    private int schoolid;
+    NoticeManagerFragment(int id){
+        this.schoolid=id;
+    }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root=inflater.inflate(R.layout.edu_fragment_notice_manager, container, false);
@@ -33,7 +39,16 @@ public class NoticeManagerFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                if(position==0){
+                    Intent intent=new Intent(getActivity(),new NoticeAddActivity().getClass());
+                    intent.putExtra("schoolid",schoolid);
+                    startActivity(intent);
+                }
+                if(position==1){
+                    Intent intent=new Intent(getActivity(),new NoticeModifyActivity().getClass());
+                    intent.putExtra("schoolid",id);
+                    startActivity(intent);
+                }
             }
         });
         return root;

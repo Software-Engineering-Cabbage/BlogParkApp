@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,32 +15,38 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.my_test6.R;
-import com.example.my_test6.netWork.PostUserApi;
-import com.example.my_test6.ui.user.ListAdapters.MyBlogAdapter;
+import com.example.my_test6.netWork.PatchApi;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
-public class MemberAddActivity extends AppCompatActivity {
+public class MemberModifyActivity extends AppCompatActivity {
+    private Context context=this;
     private final MediaType mediaType
             = MediaType.parse("application/json; charset=utf-8");
-    private final Context context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_add);
-        setTitle("添加班级成员");
-        Spinner spinner=findViewById(R.id.EduRoleSpinner);
-        final int id=getIntent().getIntExtra("id",0);
-        System.out.println("MemberAdd:"+id);
+        setContentView(R.layout.activity_member_modify);
+        setTitle("修改成员信息");
+        Intent intent=getIntent();
+        final int schoolclassid=intent.getIntExtra("schoolclassid",0);
+        final String memberid=intent.getStringExtra("memberid");
+        final String displayname=intent.getStringExtra("displayname");
+        final String studentno=intent.getStringExtra("studentno");
+        String realnameString=intent.getStringExtra("realname");
+        TextView textView=findViewById(R.id.EduNameModifyTextview2);
+        textView.setText(displayname);
+        final TextView realname=findViewById(R.id.EduRnameModifyEdittext);
+        realname.setText(realnameString);
+        Spinner spinner=findViewById(R.id.EduRoleModifySpinner);
         ArrayList<String> rolelist=new ArrayList<>();
         rolelist.add("学生");
         rolelist.add("老师");
@@ -63,33 +71,36 @@ public class MemberAddActivity extends AppCompatActivity {
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
                 String text = (String) msg.obj;
+                System.out.println(text);
                 Gson gson=new Gson();
                 ReturnMessage message=gson.fromJson(text,ReturnMessage.class);
                 AlertDialog.Builder builder=new AlertDialog.Builder(context);
                 builder.setTitle("提示");
                 if(message.getSuccess().equals("true")){
-                    builder.setMessage("添加成功");
+                    builder.setMessage("修改成功");
                 }
                 else{
                     builder.setMessage(message.getMessage());
                 }
-                builder.setPositiveButton("确定",null);
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
                 AlertDialog alertDialog=builder.create();
                 alertDialog.show();
             }
         };
-        final EditText displayname=findViewById(R.id.EduNameEdittext);
-        final EditText realname=findViewById(R.id.EduRnameEdittext);
-        final EditText sno=findViewById(R.id.EduNoEdittext);
-        Button button=findViewById(R.id.EduCommitButton);
+        Button button=findViewById(R.id.EduModifyCommitButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PostUserApi postUserApi=new PostUserApi();
-                String bodyString="{schoolClassId:"+id+",displayName:\""+displayname.getText()+"\",realName:\""+realname.getText()+"\",role:"+pos[0]+",studentNo:\""+sno.getText()+"\"}";
-                System.out.println(bodyString);
+                PatchApi patchApi=new PatchApi();
+                String bodyString="{schoolClassId:"+schoolclassid+",realName:\""+realname.getText()+"\",role:"+pos[0]+",studentNo:\""+studentno+"\"}";
+                System.out.println(bodyString+"memberid:"+memberid);
                 RequestBody body=RequestBody.create(bodyString,mediaType);
-                postUserApi.postMyApi(handler,"https://api.cnblogs.com/api/edu/member/register/displayName",body,0);
+                patchApi.patch(handler,"https://api.cnblogs.com/api/edu/member/modify/"+memberid,body,0);
             }
         });
     }
