@@ -1,86 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_height="150dp">
-    
-    <LinearLayout
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_height="wrap_content">
 
-        <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:contentPaddingBottom="7dp"
+        app:contentPaddingRight="2dp"
+        app:contentPaddingTop="7dp">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_marginLeft="20dp"
-                android:textSize="18dp"
-                android:id="@+id/item_title"
-                android:textColor="#000000"
-                android:textAllCaps="false"
+                android:id="@+id/item_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_title"
+                android:layout_alignLeft="@id/item_title"
+                android:layout_marginTop="7dp"
                 android:ellipsize="end"
-                android:lines="3"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"/>
+                android:lineSpacingExtra="1dp"
+                android:maxLines="3"
+                android:text="TextView"
+                android:textColor="#F70B0000"
+                android:textSize="14sp"  />
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_width="50dp"
-                android:layout_height="60dp">
-
-                <TextView
-                    android:id="@+id/answer_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="1"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="回答"
-                    android:gravity="center"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:layout_marginLeft="10dp"
+                android:textAllCaps="true"
+                android:textColor="#FB070000"
+                android:textColorLink="#050000"
+                android:textSize="16sp"
+                android:textStyle="bold"  />
 
             <ImageView
                 android:id="@+id/item_img"
-                android:layout_marginLeft="20dp"
-                android:background="@android:color/holo_blue_dark"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_below="@+id/item_content"
+                android:layout_alignLeft="@+id/item_title"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="7dp"
+                 />
 
             <TextView
                 android:id="@+id/user_name"
-                android:textSize="20dp"
+                android:layout_width="140dp"
+                android:layout_height="24dp"
+                android:layout_alignTop = "@+id/item_img"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf = "@+id/item_img"
+                android:ellipsize="end"
+                android:textSize="16dp"
+                android:maxLines="1"
                 android:text="username"
-                android:layout_marginLeft="20dp"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"/>
+                />
+
+            <ImageView
+                android:id="@+id/imageView_money"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_toRightOf = "@+id/user_name"
+                android:layout_marginStart="30dp"
+                android:layout_alignTop = "@+id/item_img"
+                app:srcCompat="@drawable/ic_attach_money_black_24dp" />
 
             <TextView
                 android:id="@+id/question_time"
-                android:layout_width="150dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="发布时间"/>
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_alignTop="@+id/item_img"
+                android:layout_marginLeft="7dp"
+                android:layout_toRightOf="@+id/imageView_money"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textStyle="bold" />
 
-        </LinearLayout>
-    
+            <TextView
+                android:id="@+id/answer_count"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/item_title"
+                android:layout_marginStart="2dp"
+                android:layout_toRightOf="@+id/item_title"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#19AE20"
+                android:textSize="22dp"
+                android:textStyle="bold" />
 
-    
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignLeft = "@+id/answer_count"
+                android:layout_below = "@+id/answer_count"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:text="回答" />
 
-    </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>

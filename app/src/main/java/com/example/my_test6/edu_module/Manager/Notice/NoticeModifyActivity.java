@@ -30,7 +30,7 @@ public class NoticeModifyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice_modify);
+        setContentView(R.layout.edu_activity_notice_modify);
         setTitle("修改公告");
         final int id=getIntent().getIntExtra("schoolid",0);
         @SuppressLint("HandlerLeak")final Handler handler=new Handler() {

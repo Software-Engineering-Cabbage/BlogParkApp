@@ -8,6 +8,7 @@ import com.example.my_test6.Pool.netWork.TokenString;
 public class TokenPool {
     private static  TokenPool tokenPool = null;
     public String UserToken = "";
+    public String Cookie = "";
     public boolean isLogin = false;
     private TokenString token = new TokenString();
     private TokenPool(){

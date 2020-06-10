@@ -2,7 +2,6 @@ package com.example.my_test6.edu_module.Manager.Member;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,14 +13,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.my_test6.Pool.netWork.GetUserApi;
 import com.example.my_test6.R;
-import com.example.my_test6.edu_module.Class2Activity;
 import com.example.my_test6.edu_module.Member.ClassMember;
 import com.example.my_test6.edu_module.Member.Member;
 import com.example.my_test6.edu_module.myItemTouchHelperCallBack;
@@ -34,13 +28,14 @@ import java.util.List;
 public class MemberDeleteActivity extends AppCompatActivity {
     private List<ClassMember> classMemberList;
     private RecyclerView recyclerView;
-    private Context context=this;
+    private Context context = this;
+    private int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_delete);
+        setContentView(R.layout.edu_activity_member_delete);
         setTitle("修改/删除班级成员");
-        final int id=getIntent().getIntExtra("id",0);
+        id=getIntent().getIntExtra("id",0);
         @SuppressLint("HandlerLeak")final Handler handler=new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {

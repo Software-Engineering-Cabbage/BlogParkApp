@@ -17,7 +17,6 @@ import android.widget.EditText;
 import com.example.my_test6.Pool.netWork.PostUserApi;
 import com.example.my_test6.R;
 import com.example.my_test6.edu_module.Manager.Member.ReturnMessage;
-import com.example.my_test6.edu_module.Manager.Pool;
 import com.google.gson.Gson;
 
 import okhttp3.MediaType;
@@ -30,7 +29,7 @@ public class NoticeAddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice_add);
+        setContentView(R.layout.edu_activity_notice_add);
         final int id=getIntent().getIntExtra("schoolid",0);
         setTitle("发布公告");
         @SuppressLint("HandlerLeak")final Handler handler=new Handler() {

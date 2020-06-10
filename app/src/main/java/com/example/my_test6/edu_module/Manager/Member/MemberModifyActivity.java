@@ -34,7 +34,7 @@ public class MemberModifyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_modify);
+        setContentView(R.layout.edu_activity_member_modify);
         setTitle("修改成员信息");
         Intent intent=getIntent();
         final int schoolclassid=intent.getIntExtra("schoolclassid",0);

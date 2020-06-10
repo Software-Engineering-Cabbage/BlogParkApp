@@ -32,8 +32,7 @@
         android:layout_marginLeft="310dp"
         android:background="@color/colorPrimary"
         android:text="发布"
-        android:textColor="@android:color/white"
-        />
+        android:textColor="@android:color/white" />
 
     <EditText
         android:id="@+id/QuestionTitle_edit"

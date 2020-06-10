@@ -23,8 +23,10 @@ import com.example.my_test6.Pool.MinePool;
 import com.example.my_test6.Pool.netWork.DeleteApiBody;
 import com.example.my_test6.R;
 import com.example.my_test6.edu_module.ClassActivity;
+import com.example.my_test6.edu_module.Manager.Member.ReturnMessage;
 import com.example.my_test6.edu_module.Manager.Notice.NoticeAddActivity;
 import com.example.my_test6.edu_module.Manager.Notice.NoticeModifyActivity;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -71,17 +73,19 @@ public class NoticeManagerFragment extends Fragment {
                             super.handleMessage(msg);
                             String text = (String) msg.obj;
                             System.out.println(text);
-                            /*AlertDialog.Builder builder=new AlertDialog.Builder(context);
+                            Gson gson=new Gson();
+                            ReturnMessage message=gson.fromJson(text,ReturnMessage.class);
+                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
                             builder.setTitle("提示");
-                            if(){
-                                builder.setMessage("发布成功");
+                            if(message.getSuccess().equals("true")){
+                                builder.setMessage("删除成功");
                             }
                             else{
-
+                                builder.setMessage(message.getMessage());
                             }
                             builder.setPositiveButton("确定", null );
                             AlertDialog alertDialog=builder.create();
-                            alertDialog.show();*/
+                            alertDialog.show();
                         }
                     };
                     DeleteApiBody deleteApiBody=new DeleteApiBody();

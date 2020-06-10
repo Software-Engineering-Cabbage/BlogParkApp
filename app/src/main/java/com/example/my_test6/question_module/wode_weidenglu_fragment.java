@@ -42,20 +42,4 @@ public class wode_weidenglu_fragment extends Fragment {
         }
     };
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (TokenPool.getTokenPool().isLogin) {
-            setUI();
-        }
-    }
-
-    private void setUI() {
-        FragmentManager fm = getChildFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        wode_fragment f = new wode_fragment();
-        ft.replace(R.id.wode_fragment_weidenglu,f);
-        ft.commit();
-        Log.d("TAG: ","已从未登陆界面到我的界面");
-    }
 }

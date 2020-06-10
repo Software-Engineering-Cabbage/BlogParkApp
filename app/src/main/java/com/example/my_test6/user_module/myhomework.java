@@ -22,7 +22,8 @@ public class myhomework extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_myhomework);
-        setTitle("我的作业");
+        getSupportActionBar().hide();
+        //setTitle("我的作业");
         viewpager = findViewById(R.id.testPager);
         tab = findViewById(R.id.homeworkTabs);
         viewlist = new ArrayList<Fragment>();

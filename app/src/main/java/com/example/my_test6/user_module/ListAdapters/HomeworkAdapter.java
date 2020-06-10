@@ -91,7 +91,7 @@ public class HomeworkAdapter extends RecyclerView.Adapter<HomeworkAdapter.innerH
             comment.setText(itembean.comment);
             author.setText(itembean.author);
             Abstract.setText(itembean.Abstract);
-            time.setText(itembean.time);
+            time.setText("提交时间：" + itembean.time);
             Glide.with(head.getContext()).load(itembean.avatarUrl).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(head);
             if(itembean.src == 0)
                 src.setImageResource(R.drawable.cross);

@@ -2,6 +2,7 @@ package com.example.my_test6.question_module;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.CookieManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -9,6 +10,7 @@ import android.webkit.WebViewClient;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.R;
 
 public class QuestionDetail_activity extends AppCompatActivity {
@@ -28,12 +30,18 @@ public class QuestionDetail_activity extends AppCompatActivity {
         webView.setWebViewClient(new MyWebViewClient());
         String url1 = bundle.getString("question_addr");
         //  url1 = url1.replace("http","https");
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        cookieManager.setCookie(url1, TokenPool.getTokenPool().Cookie);
         webView.loadUrl(url1);
     }
 
     private class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie(String.valueOf(request.getUrl()), TokenPool.getTokenPool().Cookie);
             return false;
         }
     }

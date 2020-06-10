@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Window;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 
 import com.example.my_test6.Pool.MinePool;
 import com.example.my_test6.Pool.TokenPool;
@@ -31,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getToken();
         sharedpreferences = getApplication().getSharedPreferences("User", Context.MODE_PRIVATE);
         boolean isLogin = sharedpreferences.getBoolean("isLogin",false);
         TokenPool.getTokenPool().UserToken = sharedpreferences.getString("UserToken","");
+        //boolean isLogin = false;
         System.out.println(isLogin);
         if(isLogin){
             GetUserApi api = new GetUserApi();
@@ -52,15 +56,16 @@ public class MainActivity extends AppCompatActivity {
                             TokenPool.getTokenPool().isLogin = true;
                             Gson gson = new Gson();
                             String json = sharedpreferences.getString("Users","[]");
+                            String cookie = sharedpreferences.getString("Cookie","");
                             System.out.println(json);
                             MinePool.getMinePool().users = gson.fromJson(json,Users.class);
+                            TokenPool.getTokenPool().Cookie = cookie;
                         }
                     }
                 }
             };
             api.getMyApi(handler, url, 1);
         }
-        getToken();
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 

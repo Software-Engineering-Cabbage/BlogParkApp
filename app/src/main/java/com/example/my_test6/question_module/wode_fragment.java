@@ -94,17 +94,6 @@ public class wode_fragment extends Fragment {
     }
 
     private void setUI() {
-        if (!TokenPool.getTokenPool().isLogin) {
-            //未登录状态
-            FragmentManager fm = getChildFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            wode_weidenglu_fragment f = new wode_weidenglu_fragment();
-            ft.replace(R.id.wode_fragment,f);
-            ft.commit();
-            Log.d("TAG","发现还未登录，切换到登录按钮界面");
-        }else {
-            //登陆状态
-
 
             Log.d("TAG","进入到登陆后的我的博问，可以加载我的博问列表");
             recyclerView = (RecyclerView) root.findViewById(R.id.wode_recyclerview);
@@ -124,7 +113,6 @@ public class wode_fragment extends Fragment {
                 }
             });
             recyclerView.setAdapter(mAdapter);
-        }
     }
 
     void initdata() {

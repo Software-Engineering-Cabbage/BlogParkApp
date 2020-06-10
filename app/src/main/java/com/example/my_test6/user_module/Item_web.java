@@ -3,10 +3,12 @@ package com.example.my_test6.user_module;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.webkit.CookieManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.R;
 
 public class Item_web extends AppCompatActivity {
@@ -23,6 +25,10 @@ public class Item_web extends AppCompatActivity {
         web.getSettings().setUseWideViewPort(true); //将图片调整到适合webview的大小
         web.getSettings().setLoadWithOverviewMode(true); // 缩放至屏幕的大小
         web.setWebViewClient(new MyWebViewClient());
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        cookieManager.removeAllCookies(null);
+        cookieManager.setCookie(s, TokenPool.getTokenPool().Cookie);
         web.loadUrl(s);
     }
 

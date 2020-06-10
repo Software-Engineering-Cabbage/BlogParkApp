@@ -22,7 +22,6 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -33,7 +32,7 @@ public class MemberAddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_add);
+        setContentView(R.layout.edu_activity_member_add);
         setTitle("添加班级成员");
         Spinner spinner=findViewById(R.id.EduRoleSpinner);
         final int id=getIntent().getIntExtra("id",0);
