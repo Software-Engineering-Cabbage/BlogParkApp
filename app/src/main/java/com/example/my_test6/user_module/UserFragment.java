@@ -1,10 +1,14 @@
 package com.example.my_test6.user_module;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ScaleDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -21,6 +25,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.my_test6.Pool.MinePool;
 import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.R;
@@ -29,8 +35,11 @@ import com.example.my_test6.user_module.GsonBean.MyBlogs;
 import com.example.my_test6.user_module.GsonBean.Users;
 import com.google.gson.Gson;
 
+import static com.example.my_test6.Pool.login.clearCache;
+
 public class UserFragment extends Fragment {
     private UserViewModel userViewModel;
+    private SharedPreferences.Editor editor;
     private SharedPreferences sp;
     private View root;
     private Button message;
@@ -45,8 +54,7 @@ public class UserFragment extends Fragment {
     private TextView ageNum;
     private TextView age;
     private TextView name;
-    private ImageView head1;
-    private ImageView head2;
+    private ImageView head;
     private String Usertoken;
     private boolean isLogin;
     private Users users;
@@ -68,9 +76,9 @@ public class UserFragment extends Fragment {
         ageNum = root.findViewById(R.id.UserageNum);
         age = root.findViewById(R.id.Userage);
         name = root.findViewById(R.id.Username);
-        head1 = root.findViewById(R.id.UserHeadImage);
-        head2 = root.findViewById(R.id.Userhead);
+        head = root.findViewById(R.id.Userhead);
         sp = getActivity().getSharedPreferences("User",Context.MODE_PRIVATE);
+        editor = sp.edit();
         setUI();
         /*final TextView textView = root.findViewById(R.id.text_user);
         userViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -93,6 +101,13 @@ public class UserFragment extends Fragment {
         //users = MinePool.getMinePool().users;
         isLogin = TokenPool.getTokenPool().isLogin;
         Usertoken = TokenPool.getTokenPool().UserToken;
+        Drawable collectionDrawable = getResources().getDrawable(R.drawable.collect,null);
+        collectionDrawable.setBounds(0, 0, (int)(collectionDrawable.getIntrinsicWidth()*0.8),
+                (int)(collectionDrawable.getIntrinsicHeight()*0.8));
+        Drawable questionDrawable = getResources().getDrawable(R.drawable.question,null);
+        questionDrawable.setBounds(0,0,(int)(questionDrawable.getIntrinsicWidth()*0.8),(int)(questionDrawable.getIntrinsicHeight()*0.8));
+        Drawable blinkDrawable = getResources().getDrawable(R.drawable.pyq,null);
+        blinkDrawable.setBounds(0,0,(int)(blinkDrawable.getIntrinsicWidth()*0.8),(int)(blinkDrawable.getIntrinsicHeight()*0.8));
         if(isLogin) {
             @SuppressLint("HandlerLeak")
             final Handler handler = new Handler() {
@@ -108,7 +123,7 @@ public class UserFragment extends Fragment {
                         //设置未完成UI
                         ageNum.setText(users.Seniority);
                         name.setText(users.DisplayName);
-                        Glide.with(head2.getContext()).load(users.Face).into(head2);
+                        Glide.with(head.getContext()).load(users.Face).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(head);
                         System.out.println("blogApp: " + users.BlogApp);
                         //博客信息
                         @SuppressLint("HandlerLeak")
@@ -136,6 +151,7 @@ public class UserFragment extends Fragment {
             GetUserApi api = new GetUserApi();
             String url = "https://api.cnblogs.com/api/users";
             api.getMyApi(handler, url, 1);
+            message.setCompoundDrawables(null,blinkDrawable,null,null);
             message.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -146,7 +162,7 @@ public class UserFragment extends Fragment {
                     startActivity(intent);
                 }
             });
-
+            browse.setCompoundDrawables(null,questionDrawable,null,null);
             browse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -157,7 +173,7 @@ public class UserFragment extends Fragment {
                     startActivity(intent);
                 }
             });
-
+            collect.setCompoundDrawables(null,collectionDrawable,null,null);
             collect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -206,19 +222,15 @@ public class UserFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     //goto login
-                    Intent intent = new Intent();
-                    ComponentName componentname = new ComponentName("com.example.my_test6", "com.example.my_test6.user_module.logout");
-                    intent.setComponent(componentname);
-                    startActivity(intent);
+                    showCoverDialog();
                 }
             });
-            head1.setImageResource(R.drawable.circle);
             attention.setText("我的博客");
             age.setText("我的园龄");
         }
 
         else {
-
+            message.setCompoundDrawables(null,blinkDrawable,null,null);
             message.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -229,7 +241,7 @@ public class UserFragment extends Fragment {
                     startActivity(intent);
                 }
             });
-
+            browse.setCompoundDrawables(null,questionDrawable,null,null);
             browse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -240,7 +252,7 @@ public class UserFragment extends Fragment {
                     startActivity(intent);
                 }
             });
-
+            collect.setCompoundDrawables(null,collectionDrawable,null,null);
             collect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -300,8 +312,30 @@ public class UserFragment extends Fragment {
             ageNum.setText("");
             attention.setText("");
             attentionNum.setText("");
-            head1.setImageResource(R.drawable.head);
-            head2.setImageResource(R.drawable.head);
+            head.setImageResource(R.drawable.head);
         }
+    }
+    private void showCoverDialog(){
+        final Context context = this.getContext();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("提示");
+        builder.setMessage("确定退出登录吗？");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                TokenPool.getTokenPool().UserToken = "";
+                TokenPool.getTokenPool().isLogin = false;
+                editor.putBoolean("isLogin",false);
+                editor.commit();
+                setUI();//这里不用清理登录网页缓存，因为在每次进入登录的模块前清理了
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
     }
 }

@@ -18,7 +18,7 @@
         app:contentPaddingRight="15dp"
         app:contentPaddingTop="7dp">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -30,10 +30,10 @@
                 android:maxLines="2"
                 android:text="TextView"
                 android:textAllCaps="true"
-                android:textColor="#FB070000"
-                android:textColorLink="#050000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColor="@color/design_default_color_on_secondary"
+
+                android:textSize="16sp"
+                android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/textView_text_search_blog"
@@ -45,7 +45,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="TextView"
-                android:textColor="#F70B0000"
+                android:textColor="#605E5E"
                 android:textSize="14sp" />
 
             <TextView

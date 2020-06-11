@@ -11,7 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.my_test6.R;
+import com.example.my_test6.edu_module.ItemTouchHelperAdapter;
 
 import java.util.List;
 
@@ -29,7 +32,9 @@ public class MemberAdapter extends ArrayAdapter {
         ImageView imageView=view.findViewById(R.id.MemberImage);
         TextView textView=view.findViewById(R.id.MemberName);
         textView.setText(member.getName());
-        Glide.with(imageView.getContext()).load("https:"+member.getAvater()).into(imageView);
+        Glide.with(imageView.getContext()).load("https:"+member.getAvater()).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(imageView);
         return view;
     }
+
+
 }

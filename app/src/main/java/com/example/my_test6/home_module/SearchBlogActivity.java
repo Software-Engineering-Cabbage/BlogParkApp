@@ -43,7 +43,7 @@ public class SearchBlogActivity extends AppCompatActivity {
     private RefreshLayout refreshLayout;
     private GetApi getApi = new GetApi();
     private int pageIndex = 1;
-    private String searchType = "Blog";
+    private String searchType;
     private String searchKeyWord = "";
     private final Handler handler = new Handler(){
         @Override
@@ -72,11 +72,21 @@ public class SearchBlogActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        searchType = bundle.getString("searchType");
+
         setContentView(R.layout.home_activity_home_search);
         SearchView searchView = findViewById(R.id.searchView_home);
           searchView.setSubmitButtonEnabled(true);
         searchView = findViewById(R.id.searchView_home);
         searchView.setSubmitButtonEnabled(true);
+        if(searchType.equals("Question")){
+            searchView.setQueryHint("搜索问答");
+        }
+        else{
+            searchView.setQueryHint("搜索博客");
+        }
         final SearchView finalSearchView = searchView;
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

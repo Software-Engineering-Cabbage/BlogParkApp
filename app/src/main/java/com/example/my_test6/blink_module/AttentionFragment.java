@@ -18,6 +18,8 @@ public class AttentionFragment extends Fragment {
 
     private static String TAG = "AttentionFragment";
 
+    private boolean isReplaceAttention;
+    private boolean isReplaceLogin;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class AttentionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        isReplaceAttention = false;
+        isReplaceLogin = false;
         Log.d(TAG, "onCreateView: ");
         View view = inflater.inflate(R.layout.blink_fragment_attention, container, false);
         setUI();
@@ -34,17 +38,25 @@ public class AttentionFragment extends Fragment {
     }
 
     private void setUI(){
-        if(TokenPool.getTokenPool().isLogin){
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.attention_frame,new AttentionLoginFragment());
-            fragmentTransaction.commit();
-        }else{
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.attention_frame,new LoginFragment());
-            fragmentTransaction.commit();
-        }
+            if(TokenPool.getTokenPool().isLogin){
+                if(!isReplaceAttention){
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.attention_frame,new AttentionLoginFragment());
+                    fragmentTransaction.commit();
+                    isReplaceAttention = true;
+                    isReplaceLogin = false;
+                }
+            }else{
+                if(!isReplaceLogin){
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.attention_frame,new LoginFragment());
+                    fragmentTransaction.commit();
+                    isReplaceLogin = true;
+                    isReplaceAttention = false;
+                }
+            }
     }
 
 

@@ -142,6 +142,7 @@ public class NotFinishHomeworkFragment extends Fragment {
                 ItemHomework h = mdata.get(position);
                 intent.putExtra("url",h.url);
                 intent.putExtra("title",h.title);
+                intent.putExtra("flag",true);
                 startActivity(intent);
             }
         });

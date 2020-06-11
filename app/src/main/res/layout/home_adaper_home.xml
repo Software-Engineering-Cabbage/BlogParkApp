@@ -33,7 +33,7 @@
                 android:textAllCaps="true"
                 android:textColor="#FB070000"
                 android:textColorLink="#050000"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView

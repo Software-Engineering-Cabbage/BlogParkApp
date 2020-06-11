@@ -109,7 +109,11 @@ public class HomeFragment extends Fragment {
         editTextSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getActivity(), SearchBlogActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("searchType","Blog");
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

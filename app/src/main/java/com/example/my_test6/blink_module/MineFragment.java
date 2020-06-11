@@ -18,6 +18,8 @@ public class MineFragment extends Fragment {
 
     private static String TAG = "MineFragment";
 
+    private boolean isReplaceMine;
+    private boolean isReplaceLogin;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        isReplaceMine = false;
+        isReplaceLogin = false;
         Log.d(TAG, "onCreateView: ");
         View view = inflater.inflate(R.layout.blink_fragment_mine, container, false);
         setUI();
@@ -34,17 +38,25 @@ public class MineFragment extends Fragment {
     }
 
     private void setUI(){
-        if(TokenPool.getTokenPool().isLogin){
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.mine_frame,new MineLoginFragment());
-            fragmentTransaction.commit();
-        }else{
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.mine_frame,new LoginFragment());
-            fragmentTransaction.commit();
-        }
+            if(TokenPool.getTokenPool().isLogin){
+                if(!isReplaceMine){
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.mine_frame,new MineLoginFragment());
+                    fragmentTransaction.commit();
+                    isReplaceMine = true;
+                    isReplaceLogin = false;
+                }
+            }else{
+                if(!isReplaceLogin){
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.mine_frame,new LoginFragment());
+                    fragmentTransaction.commit();
+                    isReplaceLogin = true;
+                    isReplaceLogin = false;
+                }
+            }
     }
 
 

@@ -1,3 +1,2 @@
 rootProject.name='my_test6'
 include ':app'
-include ':PullToRefresh'

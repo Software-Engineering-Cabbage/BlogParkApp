@@ -9,11 +9,14 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/homeworkTabs"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:tabIndicatorColor="@color/colorAccent"
-        app:tabSelectedTextColor="@android:color/white"
-        app:tabTextColor="#E0E0E0"
-        android:background="@color/colorPrimary">
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#020202"
+        app:tabIndicatorFullWidth="false"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@android:color/widget_edittext_dark"
+        app:tabTextColor="#757575"
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

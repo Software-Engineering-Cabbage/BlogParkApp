@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.my_test6">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/tubiao"
@@ -38,11 +39,21 @@
         <activity android:name=".user_module.about" />
         <activity android:name=".user_module.myhomework" />
         <activity android:name=".user_module.myblog" />
+        <activity android:name=".user_module.ResponseBlog" />
         <activity android:name=".question_module.writeQuestion_activity"/>
         <activity android:name=".question_module.QuestionDetail_activity"/>
         <activity android:name=".edu_module.Class2Activity"/>
         <activity android:name=".edu_module.ClassActivity" />
         <activity android:name=".user_module.flash"/>
+        <activity android:name=".edu_module.Manager.Notice.NoticeModifyActivity"/>
+        <activity android:name=".edu_module.Manager.Notice.NoticeAddActivity" />
+        <activity android:name=".edu_module.Manager.Member.MemberModifyActivity" />
+        <activity android:name=".edu_module.Manager.Member.MemberDeleteActivity" />
+        <activity android:name=".edu_module.Manager.Member.MemberAddActivity" />
+        <activity android:name=".edu_module.Manager.ClassManagerActivity" />
+        <activity android:name=".blink_module.ResponseDetailActivity"
+            android:label="评论"></activity>
+        <activity android:name=".blink_module.WebViewActivity" />
     </application>
 
 </manifest>

@@ -9,8 +9,14 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:cardElevation="2dp"
         app:cardUseCompatPadding="true"
-        android:background="#dcdcdc"
+        app:contentPaddingBottom="7dp"
+        app:contentPaddingLeft="15dp"
+        app:contentPaddingRight="15dp"
+        app:contentPaddingTop="7dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,31 +27,34 @@
                 android:id="@+id/item_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/hook"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 />
             <TextView
                 android:id="@+id/item_blogtitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Scrum Meeting 1"
+                android:text="Scrum meeting scrum meeting ac"
                 android:paddingStart="5dp"
                 android:paddingTop="5dp"
-                android:textColor="#000000"
+                android:textAllCaps="true"
+                android:textColor="#FB070000"
+                android:textColorLink="#050000"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/item_status"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/item_abstract"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="bulabulabula"
@@ -60,7 +69,7 @@
                 android:id="@+id/item_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingEnd="20dp"
+                android:paddingEnd="10dp"
                 android:paddingTop="5dp"
                 android:text="提交：0"
                 android:textColor="#000000"
@@ -71,32 +80,33 @@
                 android:id="@+id/item_Userhead"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:paddingBottom="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_abstract"/>
             <TextView
                 android:id="@+id/item_author"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
-                android:text="软工小白菜"
-                android:textColor="#000000"
+                android:text="软工小白菜哈哈"
                 android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@id/item_Userhead"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_abstract" />
+
             <TextView
                 android:id="@+id/item_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
                 android:ellipsize="end"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:paddingBottom="5dp"
                 android:text="4月20-5月20"
-                android:textColor="#000000"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
+
                 app:layout_constraintTop_toBottomOf="@+id/item_author" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

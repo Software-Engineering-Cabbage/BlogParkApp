@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".blink_module.RecommendFragment">
 
-    <com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/recommend_list"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recommend_refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+        android:layout_height="match_parent">
 
+        <ListView
+            android:id="@+id/recommend_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"></ListView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </RelativeLayout>

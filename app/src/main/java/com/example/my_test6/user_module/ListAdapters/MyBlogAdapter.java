@@ -9,12 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.my_test6.R;
 import com.example.my_test6.user_module.ItemBean.ItemMyBlog;
+import com.example.my_test6.user_module.ItemTouchHelper.ItemTouchHelperAdapter;
 
 import java.util.ArrayList;
 
-public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolder> {
+public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolder> implements ItemTouchHelperAdapter {
     private final ArrayList<ItemMyBlog> mData;
     private MyBlogAdapter.OnItemClickListener clickListener;
 
@@ -48,6 +51,17 @@ public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolde
     public void setOnItemClickListener(MyBlogAdapter.OnItemClickListener listener) {
         //设置一个Item的监听器
         clickListener = listener;
+    }
+
+    @Override
+    public void onItemDelete(int position) {
+        mData.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    @Override
+    public void onItemRefresh(int position) {
+        notifyItemChanged(position);
     }
 
     public interface OnItemClickListener {
@@ -90,7 +104,7 @@ public class MyBlogAdapter extends RecyclerView.Adapter<MyBlogAdapter.innerHolde
             author.setText(itembean.author);
             Abstract.setText(itembean.Abstract);
             time.setText(itembean.time);
-            Glide.with(head.getContext()).load(itembean.head).into(head);
+            Glide.with(head.getContext()).load(itembean.head).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(head);
     }
     }
 }

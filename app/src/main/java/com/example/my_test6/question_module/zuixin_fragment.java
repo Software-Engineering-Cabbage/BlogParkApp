@@ -114,6 +114,7 @@ public class zuixin_fragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("question_addr", mdata.get(position).getQUrl());
                 intent.putExtras(bundle);
+                lishi_fragment.addHistUrls(mdata.get(position));
                 startActivity(intent);
             }
         });

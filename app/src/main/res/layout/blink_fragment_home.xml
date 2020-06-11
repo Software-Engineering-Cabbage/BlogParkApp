@@ -3,20 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:background="#FDFCFC">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabIndicatorColor="#7FFFD4"
-            android:background="?attr/colorPrimary" />
+            android:layout_height="match_parent"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="#020202"
+            app:tabIndicatorFullWidth="false"
+
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@android:color/widget_edittext_dark"
+            app:tabTextColor="#757575"
+            tools:ignore="MissingConstraints" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

@@ -5,4 +5,5 @@ public class ItemCollection {
     public String Abstract;
     public String url;
     public String time;
+    public String Id;
 }

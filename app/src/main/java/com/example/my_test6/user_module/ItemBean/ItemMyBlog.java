@@ -9,4 +9,5 @@ public class ItemMyBlog {
     public String url;
     public String time;
     public String head;
+    public String id;
 }

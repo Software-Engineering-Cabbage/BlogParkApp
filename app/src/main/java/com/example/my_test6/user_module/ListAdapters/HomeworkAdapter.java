@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.my_test6.R;
 import com.example.my_test6.user_module.ItemBean.ItemHomework;
 
@@ -89,12 +91,13 @@ public class HomeworkAdapter extends RecyclerView.Adapter<HomeworkAdapter.innerH
             comment.setText(itembean.comment);
             author.setText(itembean.author);
             Abstract.setText(itembean.Abstract);
-            time.setText(itembean.time);
-            Glide.with(head.getContext()).load(itembean.avatarUrl).into(head);
-            if(itembean.src == 0)
-                src.setImageResource(R.drawable.cross);
-            else
+            time.setText("提交时间：" + itembean.time);
+            Glide.with(head.getContext()).load(itembean.avatarUrl).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(head);
+            if(itembean.src == 1)
                 src.setImageResource(R.drawable.hook);
+            else if(itembean.src == 2){
+                src.setImageResource(R.drawable.cross);
+            }
         }
     }
 }

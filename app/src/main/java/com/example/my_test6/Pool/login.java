@@ -58,6 +58,10 @@ public class login extends AppCompatActivity {
                             Users users;
                             users = gson.fromJson(json, Users.class);
                             MinePool.getMinePool().users = users;
+                            String cookie = CookieManager.getInstance().getCookie("https://oauth.cnblogs.com/connect/authorize");
+                            editor.putString("Cookie",cookie);
+                            editor.commit();
+                            System.out.println("Cookie " + cookie);
                             login.this.finish();
                         }
                     }
@@ -73,7 +77,6 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_log);
         getSupportActionBar().hide();
-
         WebView webview = findViewById(R.id.login_WebView);
         clearCache(this);
         webview.getSettings().setJavaScriptEnabled(true);

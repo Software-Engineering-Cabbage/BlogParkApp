@@ -1,6 +1,7 @@
 package com.example.my_test6.question_module;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +24,7 @@ import com.example.my_test6.Pool.MinePool;
 import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.R;
 import com.example.my_test6.Pool.netWork.GetUserApi;
+import com.example.my_test6.user_module.myItemTouchHelperCallBack;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -34,6 +37,7 @@ public class wode_fragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private List<list_item> mdata;
     private View root;
+    private Context context;
     private int pageindex = 1;
 
     private static  final int GET_Question = 0x001;
@@ -53,6 +57,9 @@ public class wode_fragment extends Fragment {
                     List<list_item> questionList =gson.fromJson(text, new TypeToken<List<list_item>>(){}.getType());
                     mdata = questionList;
                     mAdapter.setList_items(mdata);
+                    ItemTouchHelper.Callback callback = new myItemTouchHelperCallBack(mAdapter,context,"确定删除此这条博问吗？");
+                    ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+                    touchHelper.attachToRecyclerView(recyclerView);
                     break;
                 case LOADMORE:
                     String moretext = (String)msg.obj;
@@ -61,6 +68,9 @@ public class wode_fragment extends Fragment {
                     List<list_item> morequestionList =moregson.fromJson(moretext, new TypeToken<List<list_item>>(){}.getType());
                     mAdapter.addList_items(morequestionList);
                     mAdapter.setList_items(mdata);
+                    callback = new myItemTouchHelperCallBack(mAdapter,context,"确定删除此这条博问吗？");
+                    touchHelper = new ItemTouchHelper(callback);
+                    touchHelper.attachToRecyclerView(recyclerView);
                     break;
                 default:
                     break;
@@ -72,6 +82,7 @@ public class wode_fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.question_view_wode, container, false);
+        context = getContext();
         setUI();
         return root;
     }
@@ -83,17 +94,6 @@ public class wode_fragment extends Fragment {
     }
 
     private void setUI() {
-        if (!TokenPool.getTokenPool().isLogin) {
-            //未登录状态
-            FragmentManager fm = getChildFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            wode_weidenglu_fragment f = new wode_weidenglu_fragment();
-            ft.replace(R.id.wode_fragment,f);
-            ft.commit();
-            Log.d("TAG","发现还未登录，切换到登录按钮界面");
-        }else {
-            //登陆状态
-
 
             Log.d("TAG","进入到登陆后的我的博问，可以加载我的博问列表");
             recyclerView = (RecyclerView) root.findViewById(R.id.wode_recyclerview);
@@ -109,17 +109,18 @@ public class wode_fragment extends Fragment {
                     Bundle bundle = new Bundle();
                     bundle.putString("question_addr", mdata.get(position).getQUrl());
                     intent.putExtras(bundle);
+                    lishi_fragment.addHistUrls(mdata.get(position));
                     startActivity(intent);
                 }
             });
             recyclerView.setAdapter(mAdapter);
-        }
     }
 
     void initdata() {
         getuserApi = new GetUserApi();
         String url = "https://api.cnblogs.com/api/questions/@myquestion?pageIndex=1&pageSize=35&spaceUserId="
                 + MinePool.getMinePool().users.SpaceUserId;
+        System.out.println("SpaceUserId " + MinePool.getMinePool().users.SpaceUserId);
         getuserApi.getMyApi(handler,url,GET_Question);
     }
 }

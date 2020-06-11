@@ -22,7 +22,8 @@ public class myhomework extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_myhomework);
-        setTitle("我的作业");
+        getSupportActionBar().hide();
+        //setTitle("我的作业");
         viewpager = findViewById(R.id.testPager);
         tab = findViewById(R.id.homeworkTabs);
         viewlist = new ArrayList<Fragment>();
@@ -33,7 +34,7 @@ public class myhomework extends AppCompatActivity {
         viewpager.setAdapter(mfpa);
         viewpager.setCurrentItem(0);
         tab.setupWithViewPager(viewpager);
-        tab.getTabAt(0).setText("未完成");
-        tab.getTabAt(1).setText("已完成");
+        tab.getTabAt(0).setText("未截止");
+        tab.getTabAt(1).setText("已截止");
     }
 }

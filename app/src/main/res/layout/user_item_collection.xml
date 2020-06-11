@@ -7,8 +7,14 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:cardElevation="2dp"
         app:cardUseCompatPadding="true"
-        android:background="#dcdcdc"
+        app:contentPaddingBottom="7dp"
+        app:contentPaddingLeft="15dp"
+        app:contentPaddingRight="15dp"
+        app:contentPaddingTop="7dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,11 +27,12 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:paddingStart="20dp"
-                android:paddingTop="5dp"
                 android:text="Scrum Meeting 1"
-                android:textColor="#000000"
-                android:textSize="20sp"
+                android:textAllCaps="true"
+                android:textColor="#FB070000"
+                android:textColorLink="#050000"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,9 +42,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:paddingStart="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:text="bulabulabula"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -48,10 +52,7 @@
                 android:id="@+id/item_Collection_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingBottom="5dp"
                 android:text="4月20-5月20"
-                android:textColor="#000000"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_Collection_abstract" />

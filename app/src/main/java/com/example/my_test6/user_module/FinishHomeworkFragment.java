@@ -102,7 +102,12 @@ public class FinishHomeworkFragment extends Fragment {
                                             }
                                             itemHomework.time = itemHomework.time.replaceAll("T", " ");
                                             itemHomework.comment = "提交：" + homework.answerCount;
-                                            itemHomework.src = 1;
+                                            if(homework.isClosed){
+                                                itemHomework.src = 2;
+                                            }
+                                            else {
+                                                itemHomework.src = 1;
+                                            }
                                             mdata.add(itemHomework);
                                         }
                                         mAdapter = new HomeworkAdapter(mdata);
@@ -141,6 +146,7 @@ public class FinishHomeworkFragment extends Fragment {
                 ItemHomework h = mdata.get(position);
                 intent.putExtra("url",h.url);
                 intent.putExtra("title",h.title);
+                intent.putExtra("flag",true);
                 startActivity(intent);
             }
         });

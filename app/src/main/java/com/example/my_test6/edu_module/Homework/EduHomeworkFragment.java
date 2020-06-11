@@ -16,8 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.my_test6.R;
 import com.example.my_test6.Pool.netWork.GetUserApi;
+import com.example.my_test6.R;
 import com.example.my_test6.edu_module.Class2Activity;
 import com.example.my_test6.edu_module.Notice.ClassNotice;
 import com.example.my_test6.edu_module.Notice.NoticeAdapter;
@@ -34,7 +34,7 @@ public class EduHomeworkFragment extends Fragment {
     private int count;
     private int pagenumber;
     private List<Homeworks> homeworksList;
-    private List<ClassNotice> classHomeworkList=new ArrayList<>();
+    private List<ClassNotice> classHomeworkList;
     final GetUserApi getApi=new GetUserApi();
     public EduHomeworkFragment(int id){
         this.id=id;
@@ -44,6 +44,7 @@ public class EduHomeworkFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root=inflater.inflate(R.layout.edu_fragment_edu_homework, container, false);
+        classHomeworkList=new ArrayList<>();
         @SuppressLint("HandlerLeak")final Handler handler=new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {
@@ -59,12 +60,58 @@ public class EduHomeworkFragment extends Fragment {
                     homeworksList=homework.getHomeworks();
                     int tempcount=100;
                     if(count<100){
-                        tempcount=count;
+                        tempcount=homeworksList.size();//count存在问题，这里建议使用size，否则可能会崩溃
                     }
                     for(int i=0;i<tempcount;i++){
                         String title=homeworksList.get(i).getTitle();
-                        String date=homeworksList.get(i).getDisplayTime().split("T")[0];
+                        String date;
+                        String deadline,starttime;
+                        if (homeworksList.get(i).getStartTime() == null) {
+                            if (homeworksList.get(i).getDeadline() == null) {
+                                date = "未设置";
+                            } else {
+                                if (homeworksList.get(i).getDeadline().contains("+")) {
+                                    deadline = homeworksList.get(i).getDeadline().substring(0, homeworksList.get(i).getDeadline().indexOf('+'));
+                                }
+                                else{
+                                    deadline = homeworksList.get(i).getDeadline();
+                                }
+                                date = "未设置 ~ " + deadline.substring(0, deadline.length() - 3);
+                            }
+                        } else {
+                            if (homeworksList.get(i).getDeadline() == null) {
+                                date = homeworksList.get(i).getStartTime().substring(0, homeworksList.get(i).getStartTime().length() - 3) + " ~ " + "未设置";
+                            } else {
+                                if (homeworksList.get(i).getDeadline().contains("+")) {
+                                    deadline = homeworksList.get(i).getDeadline().substring(0, homeworksList.get(i).getDeadline().indexOf('+'));
+                                }
+                                else {
+                                    deadline = homeworksList.get(i).getDeadline();
+                                }
+                                if (homeworksList.get(i).getStartTime().contains("+")) {
+                                    starttime = homeworksList.get(i).getStartTime().substring(0, homeworksList.get(i).getStartTime().indexOf('+'));
+                                }
+                                else {
+                                    starttime = homeworksList.get(i).getStartTime();
+                                }
+                                date = starttime.substring(0, starttime.length() - 3)
+                                        + " ~ " + deadline.substring(0, deadline.length() - 3);
+                            }
+                        }
+                        date = date.replaceAll("T", " ");
                         ClassNotice classHomework=new ClassNotice(title,date);
+                        classHomework.detail = homeworksList.get(i).getDescription();
+                        classHomework.head = "https:" + homeworksList.get(i).getAvatarUrl();
+                        classHomework.submit = homeworksList.get(i).getAnswerCount();
+                        if(homeworksList.get(i).getIsFinished().equals("true")){
+                            if(homeworksList.get(i).getIsClosed().equals("true"))
+                                classHomework.src = 2;
+                            else
+                                classHomework.src = 1;
+                        }
+                        else
+                            classHomework.src = 0;
+                        classHomework.author = homeworksList.get(i).getDisplayName();
                         classHomeworkList.add(classHomework);
                     }
                     pagenumber=count/100;
@@ -81,23 +128,115 @@ public class EduHomeworkFragment extends Fragment {
                                 if(temp[0]<pagenumber-1){
                                     for(int i=0;i<100;i++){
                                         String title=homeworksList.get(i).getTitle();
-                                        String date=homeworksList.get(i).getDisplayTime().split("T")[0];
+                                        String date;
+                                        String deadline,starttime;
+                                        if (homeworksList.get(i).getStartTime() == null) {
+                                            if (homeworksList.get(i).getDeadline() == null) {
+                                                date = "未设置";
+                                            } else {
+                                                if (homeworksList.get(i).getDeadline().contains("+")) {
+                                                    deadline = homeworksList.get(i).getDeadline().substring(0, homeworksList.get(i).getDeadline().indexOf('+'));
+                                                }
+                                                else{
+                                                    deadline = homeworksList.get(i).getDeadline();
+                                                }
+                                                date = "未设置 ~ " + deadline.substring(0, deadline.length() - 3);
+                                            }
+                                        } else {
+                                            if (homeworksList.get(i).getDeadline() == null) {
+                                                date = homeworksList.get(i).getStartTime().substring(0, homeworksList.get(i).getStartTime().length() - 3) + " ~ " + "未设置";
+                                            } else {
+                                                if (homeworksList.get(i).getDeadline().contains("+")) {
+                                                    deadline = homeworksList.get(i).getDeadline().substring(0, homeworksList.get(i).getDeadline().indexOf('+'));
+                                                }
+                                                else {
+                                                    deadline = homeworksList.get(i).getDeadline();
+                                                }
+                                                if (homeworksList.get(i).getStartTime().contains("+")) {
+                                                    starttime = homeworksList.get(i).getStartTime().substring(0, homeworksList.get(i).getStartTime().indexOf('+'));
+                                                }
+                                                else {
+                                                    starttime = homeworksList.get(i).getStartTime();
+                                                }
+                                                date = starttime.substring(0, starttime.length() - 3)
+                                                        + " ~ " + deadline.substring(0, deadline.length() - 3);
+                                            }
+                                        }
+                                        date = date.replaceAll("T", " ");
                                         ClassNotice classHomework=new ClassNotice(title,date);
+                                        classHomework.detail = homeworksList.get(i).getDescription();
+                                        classHomework.head = "https:" + homeworksList.get(i).getAvatarUrl();
+                                        classHomework.submit = homeworksList.get(i).getAnswerCount();
+                                        if(homeworksList.get(i).getIsFinished().equals("true")){
+                                            if(homeworksList.get(i).getIsClosed().equals("true"))
+                                                classHomework.src = 2;
+                                            else
+                                                classHomework.src = 1;
+                                        }
+                                        else
+                                            classHomework.src = 0;
+                                        classHomework.author = homeworksList.get(i).getDisplayName();
                                         classHomeworkList.add(classHomework);
                                     }
                                 }
                                 else{
                                     for(int i=0;i<extranumber;i++){
                                         String title=homeworksList.get(i).getTitle();
-                                        String date=homeworksList.get(i).getDisplayTime().split("T")[0];
+                                        String date;
+                                        String deadline,starttime;
+                                        if (homeworksList.get(i).getStartTime() == null) {
+                                            if (homeworksList.get(i).getDeadline() == null) {
+                                                date = "未设置";
+                                            } else {
+                                                if (homeworksList.get(i).getDeadline().contains("+")) {
+                                                    deadline = homeworksList.get(i).getDeadline().substring(0, homeworksList.get(i).getDeadline().indexOf('+'));
+                                                }
+                                                else{
+                                                    deadline = homeworksList.get(i).getDeadline();
+                                                }
+                                                date = "未设置 ~ " + deadline.substring(0, deadline.length() - 3);
+                                            }
+                                        } else {
+                                            if (homeworksList.get(i).getDeadline() == null) {
+                                                date = homeworksList.get(i).getStartTime().substring(0, homeworksList.get(i).getStartTime().length() - 3) + " ~ " + "未设置";
+                                            } else {
+                                                if (homeworksList.get(i).getDeadline().contains("+")) {
+                                                    deadline = homeworksList.get(i).getDeadline().substring(0, homeworksList.get(i).getDeadline().indexOf('+'));
+                                                }
+                                                else {
+                                                    deadline = homeworksList.get(i).getDeadline();
+                                                }
+                                                if (homeworksList.get(i).getStartTime().contains("+")) {
+                                                    starttime = homeworksList.get(i).getStartTime().substring(0, homeworksList.get(i).getStartTime().indexOf('+'));
+                                                }
+                                                else {
+                                                    starttime = homeworksList.get(i).getStartTime();
+                                                }
+                                                date = starttime.substring(0, starttime.length() - 3)
+                                                        + " ~ " + deadline.substring(0, deadline.length() - 3);
+                                            }
+                                        }
+                                        date = date.replaceAll("T", " ");
                                         ClassNotice classHomework=new ClassNotice(title,date);
+                                        classHomework.detail = homeworksList.get(i).getDescription();
+                                        classHomework.head = "https:" + homeworksList.get(i).getAvatarUrl();
+                                        classHomework.submit = homeworksList.get(i).getAnswerCount();
+                                        if(homeworksList.get(i).getIsFinished().equals("true")){
+                                            if(homeworksList.get(i).getIsClosed().equals("true"))
+                                                classHomework.src = 2;
+                                            else
+                                                classHomework.src = 1;
+                                        }
+                                        else
+                                            classHomework.src = 0;
+                                        classHomework.author = homeworksList.get(i).getDisplayName();
                                         classHomeworkList.add(classHomework);
                                     }
                                 }
 
                             }
                             temp[0]++;
-                            NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.edu_class_notice, classHomeworkList);
+                            NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.user_item_homework, classHomeworkList);
                             listView.setAdapter(homeworkAdapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
@@ -116,7 +255,7 @@ public class EduHomeworkFragment extends Fragment {
                         }
                     }
                     else{
-                        NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.edu_class_notice, classHomeworkList);
+                        NoticeAdapter homeworkAdapter=new NoticeAdapter(getActivity(), R.layout.user_item_homework, classHomeworkList);
                         listView.setAdapter(homeworkAdapter);
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override

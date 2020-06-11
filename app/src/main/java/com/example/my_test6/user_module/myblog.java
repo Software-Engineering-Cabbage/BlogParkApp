@@ -2,11 +2,13 @@ package com.example.my_test6.user_module;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,6 +35,7 @@ public class myblog extends AppCompatActivity {
     private MyBlogs myBlogs;
     private Users users;
     private List<MyBlogList> datalist;
+    private Context context = this;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler(){
         @Override
@@ -57,6 +60,7 @@ public class myblog extends AppCompatActivity {
                         iblog.Abstract = myBlogList.Description;
                         iblog.comment = "评论：" + myBlogList.CommentCount;
                         iblog.head = myBlogList.Avatar;
+                        iblog.id = "" + myBlogList.Id;
                         mdata.add(iblog);
                     }
                     mAdapter = new MyBlogAdapter(mdata);
@@ -71,6 +75,7 @@ public class myblog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_myblog);
+        //getSupportActionBar().hide();
         setTitle("我的博客");
         users = MinePool.getMinePool().users;
         myBlogs = MinePool.getMinePool().myblogs;
@@ -91,6 +96,8 @@ public class myblog extends AppCompatActivity {
                 ItemMyBlog h = mdata.get(position);
                 intent.putExtra("url",h.url);
                 intent.putExtra("title",h.title);
+                intent.putExtra("blogApp",h.title);
+                intent.putExtra("postId",h.id);
                 startActivity(intent);
             }
         });

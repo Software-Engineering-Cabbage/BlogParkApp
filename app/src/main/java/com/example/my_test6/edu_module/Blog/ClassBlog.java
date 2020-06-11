@@ -5,6 +5,9 @@ public class ClassBlog {
     private String name;
     private String title;
     private String date;
+    public String read;
+    public String comment;
+    public String detail;
 
     public ClassBlog(String avater, String name, String title, String date) {
         this.avater = avater;

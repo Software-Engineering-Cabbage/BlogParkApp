@@ -12,7 +12,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#ffffff"
-        android:drawableTop="@drawable/collect"
         android:text="我的收藏"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
@@ -40,7 +39,7 @@
         android:paddingLeft="15dp"
         android:text="我的博客"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +64,7 @@
         android:paddingLeft="10dp"
         android:text="我的作业"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +88,7 @@
         android:gravity="start|center"
         android:paddingLeft="15dp"
         android:text="关于"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,7 +107,7 @@
         android:layout_height="0dp"
         android:background="#ffffff"
         android:textColor="#ff0000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +125,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#ffffff"
-        android:drawableTop="@drawable/question"
         android:text="我的博问"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
@@ -146,7 +144,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#ffffff"
-        android:drawableTop="@drawable/pyq"
         android:text="我的动态"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
@@ -240,14 +237,18 @@
             android:id="@+id/Username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp"
             android:text="发现更大的技术世界"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -262,30 +263,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:maxWidth="41pt"
-        android:maxHeight="41pt"
+        android:maxWidth="35pt"
+        android:maxHeight="35pt"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/UserHeadImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Userattention"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:paddingBottom="10dp"
         android:gravity="center|bottom"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -298,8 +292,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center|bottom"
+        android:paddingBottom="10dp"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline2"
@@ -315,7 +310,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintEnd_toStartOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/UserHeadImage" />
+        app:layout_constraintTop_toBottomOf="@id/Userhead" />
 
 
     <TextView
@@ -328,7 +323,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/UserHeadImage" />
+        app:layout_constraintTop_toBottomOf="@id/Userhead" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"

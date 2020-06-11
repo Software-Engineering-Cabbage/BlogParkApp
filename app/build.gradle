@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.my_test6"
-        minSdkVersion 28
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -41,6 +41,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.2'
-    implementation project(path: ':PullToRefresh')
 
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.R;
 import com.example.my_test6.Pool.login;
+import com.example.my_test6.home_module.SearchBlogActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -48,12 +50,24 @@ public class QuestionFragment extends Fragment {
         aList.add(new zuixin_fragment());
         aList.add(new gaofen_fragment());
         aList.add(new yijiejue_fragment());
-        aList.add(new wode_fragment());
+        aList.add(new myQuestionFragment());
+        aList.add(new lishi_fragment());
         mypageradapter madapter = new mypageradapter(getChildFragmentManager(),aList);
         viewPager.setAdapter(madapter);
         //problemtabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         problemtabs.setupWithViewPager(viewPager);
-
+        EditText search = root.findViewById(R.id.editText_que);
+        search.setFocusable(false);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SearchBlogActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("searchType","Question");
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,13 +98,13 @@ public class QuestionFragment extends Fragment {
             tabs.add("高分");
             tabs.add("已解决");
             tabs.add("我的");
-
+            tabs.add("历史");
             viewLists = list;
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
 
         @NonNull

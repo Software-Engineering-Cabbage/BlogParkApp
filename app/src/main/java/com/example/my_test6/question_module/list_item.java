@@ -1,7 +1,7 @@
 package com.example.my_test6.question_module;
 
 public class list_item {
-    private int Qid;
+    public int Qid;
     private int DealFlag;
     private int ViewCount;
     private String Title;
@@ -235,5 +235,21 @@ public class list_item {
 
     public void setUserId(int userId) {
         UserId = userId;
+    }
+
+    public int getAward() {
+        return Award;
+    }
+
+    public void setAward(int award) {
+        Award = award;
+    }
+
+    public String getSummary() {
+        return Summary;
+    }
+
+    public void setSummary(String summary) {
+        Summary = summary;
     }
 }

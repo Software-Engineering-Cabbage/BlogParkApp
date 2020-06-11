@@ -14,62 +14,14 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de74a8e2-0add-421d-a1a4-ff7af041da85" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_scwang_smartrefresh_SmartRefreshHeader_1_1_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_scwang_smartrefresh_SmartRefreshHeader_1_1_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_scwang_smartrefresh_SmartRefreshLayout_1_1_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_scwang_smartrefresh_SmartRefreshLayout_1_1_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_in_from_bottom.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_in_from_bottom.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_in_from_top.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_in_from_top.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_out_to_bottom.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_out_to_bottom.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_out_to_top.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/anim_slide_out_to_top.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-hdpi-v4_default_ptr_flip.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-hdpi-v4_default_ptr_flip.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-hdpi-v4_default_ptr_rotate.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-hdpi-v4_default_ptr_rotate.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-hdpi-v4_indicator_arrow.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-hdpi-v4_indicator_arrow.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-mdpi-v4_default_ptr_flip.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-mdpi-v4_default_ptr_flip.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-mdpi-v4_default_ptr_rotate.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-mdpi-v4_default_ptr_rotate.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-mdpi-v4_indicator_arrow.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-mdpi-v4_indicator_arrow.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-xhdpi-v4_default_ptr_flip.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-xhdpi-v4_default_ptr_flip.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-xhdpi-v4_default_ptr_rotate.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-xhdpi-v4_default_ptr_rotate.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-xhdpi-v4_indicator_arrow.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable-xhdpi-v4_indicator_arrow.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable_indicator_bg_bottom.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable_indicator_bg_bottom.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable_indicator_bg_top.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/drawable_indicator_bg_top.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/layout_pull_to_refresh_header_horizontal.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/layout_pull_to_refresh_header_horizontal.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/layout_pull_to_refresh_header_vertical.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/compiled_local_resources/debug/out/layout_pull_to_refresh_header_vertical.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/packageDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/packageDebugAssets/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/incremental/packageDebugResources/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PullToRefresh/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PullToRefresh/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/Pool/TokenPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/Pool/TokenPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/Pool/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_test6/Pool/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_item_blog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_item_blog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-    </list>
+    <list default="true" id="de74a8e2-0add-421d-a1a4-ff7af041da85" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_XL_API_29" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -93,15 +45,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="E:\6wenming\android_picture\signs\my_sign.jks" />
+    <option name="KEY_STORE_PATH" value="D:\Android\key\my_key.jks" />
     <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
     <option name="BUILD_TARGET_KEY" value="apk" />
   </component>
   <component name="Git.Settings">
@@ -112,35 +65,41 @@
   <component name="PropertiesComponent">
     <property name="ApkExportedModule" value="app" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_5X_API_29_x86" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-28T05:01:07.077Z" />
-    <property name="ExportApk.ApkPath" value="E:\6wenming\my_test6\app" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-20T13:47:09.057Z" />
+    <property name="ExportApk.ApkPath" value="D:\Android\apk" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../androidSdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my_test6" />
-    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../apk" />
+    <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\edu_module" />
       <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module" />
-      <recent name="E:\6wenming\my_test6\app\src\main\res\layout" />
-      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\Pool" />
-      <recent name="E:\6wenming\my_test6\app\src\main\res\drawable-v24" />
+      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\question_module" />
+      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module\ListAdapters" />
+      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module\ItemBean" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.example.my_test6.home" />
       <recent name="com.example.my_test6" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module\ListAdapters" />
-      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module\ItemBean" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Android\my_test6\app\src\main\res\layout" />
+      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\blink_module" />
+      <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\edu_module\Manager" />
       <recent name="E:\6wenming\my_test6\app\src\main\java\com\example\my_test6\user_module" />
       <recent name="E:\6wenming\my_test6\app\src\main\res\layout" />
-      <recent name="E:\6wenming\my_test6\app\src\main\res\drawable" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -155,7 +114,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="ExampleUnitTest.testPost" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.my_test6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.my_test6" />
+      <option name="MAIN_CLASS_NAME" value="com.example.my_test6.ExampleUnitTest" />
+      <option name="METHOD_NAME" value="testPost" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -214,6 +190,11 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android JUnit.ExampleUnitTest.testPost" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -291,33 +272,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>111</line>
+          <line>121</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>116</line>
+          <line>126</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>113</line>
+          <line>123</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>112</line>
+          <line>122</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>114</line>
+          <line>124</line>
           <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
@@ -326,23 +302,158 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>86</line>
+          <line>96</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>121</line>
+          <line>131</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="46" />
+          <line>106</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/SearchBlogActivity.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="47" />
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/example/my_test6/ExampleUnitTest.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/example/my_test6/ExampleUnitTest.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/EduNoticeFragment.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/EduNoticeFragment.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/edu_module/Notice/EduNoticeFragment.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/Pool/netWork/PatchApi.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/question_module/QuestionFragment.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/question_module/QuestionFragment.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/question_module/QuestionFragment.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/question_module/QuestionFragment.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/question_module/QuestionFragment.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/question_module/QuestionFragment.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/Pool/netWork/GetApi.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/Pool/netWork/GetApi.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_test6/home_module/HomeFragment.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

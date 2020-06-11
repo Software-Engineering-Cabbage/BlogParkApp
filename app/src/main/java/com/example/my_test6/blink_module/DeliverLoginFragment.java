@@ -60,14 +60,22 @@ public class DeliverLoginFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.deliver:
-                PostUserApi postUserApi = new PostUserApi();
-                String url = "https://api.cnblogs.com/api/statuses ";
-                RequestBody body = getDeliverBody();
-                postUserApi.postMyApi(handler,url,body,DELIVER);
-                Toast.makeText(getActivity(), "发送成功", Toast.LENGTH_SHORT).show();
-                edit_text.setText("");
+                if(edit_text.getText().toString().equals("")){
+                    Toast.makeText(getActivity(), "内容不能为空", Toast.LENGTH_SHORT).show();
+                }else{
+                    deliverText();
+                    Toast.makeText(getActivity(), "发送成功", Toast.LENGTH_SHORT).show();
+                    edit_text.setText("");
+                }
                 break;
         }
+    }
+
+    private void deliverText(){
+        PostUserApi postUserApi = new PostUserApi();
+        String url = "https://api.cnblogs.com/api/statuses ";
+        RequestBody body = getDeliverBody();
+        postUserApi.postMyApi(handler,url,body,DELIVER);
     }
 
     private RequestBody getDeliverBody(){

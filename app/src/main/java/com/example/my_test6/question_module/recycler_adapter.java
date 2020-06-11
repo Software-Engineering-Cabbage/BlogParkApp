@@ -1,6 +1,9 @@
 package com.example.my_test6.question_module;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,12 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.my_test6.Pool.netWork.DeleteApi;
 import com.example.my_test6.R;
+import com.example.my_test6.user_module.ItemTouchHelperAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myviewholder> {
+public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myviewholder> implements ItemTouchHelperAdapter {
 
     private List<list_item> list_items = new ArrayList<>();
     private Context context;
@@ -59,12 +66,39 @@ public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myvi
         this.mlistener = l;
     }
 
+    @Override
+    public void onItemDelete(int position) {
+        list_item del = list_items.get(position);
+        String url = "https://api.cnblogs.com/api/questions/" + del.Qid;
+        System.out.println("Id为： " + del.Qid);
+        DeleteApi delapi = new DeleteApi();
+        @SuppressLint("HandlerLeak")
+        final Handler handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                if(msg.what == 1){
+                    //删除成功
+                    String json = (String)msg.obj;
+                }
+            }
+        };
+        delapi.Delete(handler, url,1);
+        list_items.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    @Override
+    public void onItemRefresh(int position) {
+        notifyItemChanged(position);
+    }
+
     class Myviewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView title;
         private ImageView img;
         private TextView username;
         private TextView answerCount;
         private TextView questionTime;
+        private TextView summary;
         private OnItemClickListener mlistener;
 
         public Myviewholder(View itemView, OnItemClickListener listener) {
@@ -74,7 +108,7 @@ public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myvi
             username = (TextView) itemView.findViewById(R.id.user_name);
             answerCount = (TextView) itemView.findViewById(R.id.answer_count);
             questionTime = (TextView) itemView.findViewById(R.id.question_time);
-
+            summary = (TextView) itemView.findViewById(R.id.item_content);
             mlistener = listener;
             itemView.setOnClickListener(this);
 
@@ -90,11 +124,14 @@ public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Myvi
             //img.setImageResource(R.drawable.ic_launcher_foreground);
             title.setText(data.getTitle());
             username.setText(data.getQuestionUserInfo().getUserName());
-            questionTime.setText(data.getDateAdded().substring(0,16));
+            questionTime.setText(Integer.toString(data.getAward()));
             answerCount.setText(Integer.toString(data.getAnswerCount()));
+            summary.setText(data.getSummary());
             Glide.with(img.getContext())
                     .load(data.getQuestionUserInfo().getFace())
-                    //.apply(RequestOptions.bitmapTransform(new CircleCrop()))
+                    .error(R.drawable.error_load)
+                    .apply(RequestOptions.bitmapTransform(new CircleCrop()))
+
                     .into(img);
         }
     }

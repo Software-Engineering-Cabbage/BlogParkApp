@@ -1,45 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    >
 
-    <ImageButton
-        android:id="@+id/writeQuestion_return"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:outlineAmbientShadowColor="@color/colorAccent"
-        android:src="@drawable/ic_keyboard_backspace_black_24dp"
-        />
+        android:id="@+id/rela_que">
 
-    <TextView
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:layout_marginLeft="50dp"
-        android:textColor="@android:color/white"
-        android:text="发布你的博问"
-        android:background="@color/colorPrimary"
-        />
+        <ImageButton
+            android:id="@+id/writeQuestion_return"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:src="@drawable/ic_keyboard_backspace_black_24dp" />
 
-    <Button
-        android:id="@+id/fabuQuestion_button"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="310dp"
-        android:background="@color/colorPrimary"
-        android:text="发布"
-        android:textColor="@android:color/white"
-        />
+        <TextView
+            android:id="@+id/rela_ww"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@+id/writeQuestion_return"
+            android:gravity="center"
+            android:text="发布你的博问"
+            android:textColor="@android:color/white"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/fabuQuestion_button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/rela_ww"
+            android:text="发布"
+            android:textSize="20dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/QuestionTitle_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_below="@id/rela_que"
+        android:layout_marginTop="40dp"
         android:hint="标题"
         android:maxLength="200"
         android:textColorHint="@android:color/darker_gray" />
@@ -48,11 +56,12 @@
         android:id="@+id/QuestionContent_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_below="@+id/QuestionTitle_edit"
+        android:layout_marginTop="10dp"
         android:hint="问题描述..."
         android:maxLength="10000"
         android:textColorHint="@android:color/darker_gray"/>
 
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

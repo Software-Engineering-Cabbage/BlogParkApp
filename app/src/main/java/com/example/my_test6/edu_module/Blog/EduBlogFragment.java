@@ -1,6 +1,7 @@
 package com.example.my_test6.edu_module.Blog;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,17 +17,19 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.my_test6.R;
 import com.example.my_test6.Pool.netWork.GetUserApi;
+import com.example.my_test6.R;
 import com.example.my_test6.edu_module.Class2Activity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class EduBlogFragment extends Fragment {
     private int id;
+    private Context context;
     private View root;
     private int count=0;
     private int pagenumber=0;
@@ -42,6 +45,7 @@ public class EduBlogFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root=inflater.inflate(R.layout.edu_fragment_edu_blog, container, false);
+        context = getContext();
         @SuppressLint("HandlerLeak")final Handler handler=new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg){
@@ -65,6 +69,9 @@ public class EduBlogFragment extends Fragment {
                         String title=blogPostsList.get(i).getTitle();
                         String date=blogPostsList.get(i).getDateAdded();
                         ClassBlog classBlog=new ClassBlog(avater,name,title,date);
+                        classBlog.detail = blogPostsList.get(i).getDescription();
+                        classBlog.comment = blogPostsList.get(i).getCommentCount();
+                        classBlog.read = blogPostsList.get(i).getViewCount();
                         classBlogList.add(classBlog);
                     }
                     pagenumber=count/100;
@@ -85,6 +92,9 @@ public class EduBlogFragment extends Fragment {
                                         String title = blogPostsList.get(i).getTitle();
                                         String date = blogPostsList.get(i).getDateAdded();
                                         ClassBlog classBlog = new ClassBlog(avater, name, title, date);
+                                        classBlog.detail = blogPostsList.get(i).getDescription();
+                                        classBlog.comment = blogPostsList.get(i).getCommentCount();
+                                        classBlog.read = blogPostsList.get(i).getViewCount();
                                         classBlogList.add(classBlog);
                                     }
                                 }
@@ -95,12 +105,15 @@ public class EduBlogFragment extends Fragment {
                                         String title = blogPostsList.get(i).getTitle();
                                         String date = blogPostsList.get(i).getDateAdded();
                                         ClassBlog classBlog = new ClassBlog(avater, name, title, date);
+                                        classBlog.detail = blogPostsList.get(i).getDescription();
+                                        classBlog.comment = blogPostsList.get(i).getCommentCount();
+                                        classBlog.read = blogPostsList.get(i).getViewCount();
                                         classBlogList.add(classBlog);
                                     }
                                 }
                             }
                             temp[0]++;
-                            BlogAdapter blogAdapter=new BlogAdapter(getActivity(),R.layout.edu_class_blog,classBlogList);
+                            BlogAdapter blogAdapter=new BlogAdapter(context,R.layout.user_item_blog,classBlogList);
                             listView.setAdapter(blogAdapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
@@ -119,7 +132,7 @@ public class EduBlogFragment extends Fragment {
                         }
                     }
                     else{
-                        BlogAdapter blogAdapter=new BlogAdapter(getActivity(),R.layout.edu_class_blog,classBlogList);
+                        BlogAdapter blogAdapter=new BlogAdapter(context,R.layout.user_item_blog,classBlogList);
                         listView.setAdapter(blogAdapter);
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override

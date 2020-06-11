@@ -68,7 +68,10 @@ public class blinkInfo {
     }
 
     public String getDateAdded() {
-        return DateAdded;
+        String Date_temp = DateAdded.substring(0,16);
+        char[] Date = Date_temp.toCharArray();
+        Date[10] = ' ';
+        return String.valueOf(Date);
     }
 
     public void setDateAdded(String dateAdded) {

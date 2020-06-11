@@ -52,7 +52,7 @@ public class GetUserToken {
                     message.what = GET_USER_TOKEN;
                     message.obj = s;
                     handler.sendMessage(message);
-                    Log.d(TAG, "run: sendMessage"+s);
+                 //   Log.d(TAG, "run: sendMessage"+s);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -17,8 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.my_test6.Pool.TokenPool;
-import com.example.my_test6.R;
 import com.example.my_test6.Pool.netWork.GetUserApi;
+import com.example.my_test6.R;
 import com.example.my_test6.edu_module.Notice.ClassInfo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
