@@ -121,6 +121,9 @@ public class EduBlogFragment extends Fragment {
                                     Intent intent=new Intent(getActivity(),new Class2Activity().getClass());
                                     intent.putExtra("web",blogPostsList.get(position).getUrl());
                                     intent.putExtra("type",2);
+                                    intent.putExtra("postId","" + blogPostsList.get(position).getId());
+                                    intent.putExtra("blogApp",blogPostsList.get(position).getBlogUrl().split("/")[3]);
+                                    System.out.println(blogPostsList.get(position).getBlogId());
                                     startActivity(intent);
                                 }
                             });
@@ -140,6 +143,8 @@ public class EduBlogFragment extends Fragment {
                                 Intent intent=new Intent(getActivity(),new Class2Activity().getClass());
                                 intent.putExtra("web",blogPostsList.get(position).getUrl());
                                 intent.putExtra("type",2);
+                                intent.putExtra("postId","" + blogPostsList.get(position).getBlogId());
+                                intent.putExtra("blogApp",blogPostsList.get(position).getBlogUrl().split("/")[3]);
                                 startActivity(intent);
                             }
                         });

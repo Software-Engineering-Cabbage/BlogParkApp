@@ -129,6 +129,8 @@ public class HomeFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("blog_addr",mData.get(position).getUrl());
                 intent.putExtras(bundle);
+                intent.putExtra("postId","" + mData.get(position).getId());
+                intent.putExtra("blogApp",mData.get(position).getBlogApp());
                 startActivity(intent);
             }
         });

@@ -11,6 +11,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.my_test6.Pool.MinePool;
 import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.Pool.login;
 import com.example.my_test6.R;
@@ -19,7 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class Item_web extends AppCompatActivity {
     private WebView web;
     private String postId = "";
-    private String blogApp = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +32,14 @@ public class Item_web extends AppCompatActivity {
             actionbutton.setVisibility(View.GONE);
         }
         else {
-            blogApp = getIntent().getStringExtra("blogApp");
             postId = getIntent().getStringExtra("postId");
             actionbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //goto browseHistory
                     Intent intent = new Intent();
                     ComponentName componentname = new ComponentName("com.example.my_test6", "com.example.my_test6.user_module.ResponseBlog");
                     intent.putExtra("postId",postId);
-                    intent.putExtra("blogApp",blogApp);
+                    intent.putExtra("blogApp", MinePool.getMinePool().users.BlogApp);
                     intent.setComponent(componentname);
                     startActivity(intent);
                 }

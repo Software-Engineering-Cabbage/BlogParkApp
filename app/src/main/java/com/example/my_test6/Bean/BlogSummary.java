@@ -1,7 +1,7 @@
 package com.example.my_test6.Bean;
 
 public class BlogSummary {
-    private int id;
+    private int Id;
     private String Title;
     private String Url;
     private String Description;
@@ -13,8 +13,8 @@ public class BlogSummary {
     private int CommentCount;
     private int DiggCount;
 
-    public BlogSummary(int id, String title, String url, String description, String author, String blogApp, String avatar, String postDate, int viewCount, int commentCount, int diggCount) {
-        this.id = id;
+    public BlogSummary(int Id, String title, String url, String description, String author, String blogApp, String avatar, String postDate, int viewCount, int commentCount, int diggCount) {
+        this.Id = Id;
         this.Title = title;
         Url = url;
         Description = description;
@@ -31,7 +31,7 @@ public class BlogSummary {
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public String getTitle() {
@@ -74,8 +74,8 @@ public class BlogSummary {
         return DiggCount;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public void setTitle(String title) {

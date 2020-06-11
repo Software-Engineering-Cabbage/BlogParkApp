@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_comment_content"
             android:gravity="left|top"
-            android:hint="评论些吧哥哥姐姐"
+            android:hint="快发表评论吧！"
             android:maxLength="300"
             android:minHeight="80dp"
             android:padding="12dp"

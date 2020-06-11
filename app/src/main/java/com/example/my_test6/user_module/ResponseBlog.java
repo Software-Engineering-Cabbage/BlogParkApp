@@ -23,13 +23,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.my_test6.Pool.MinePool;
 import com.example.my_test6.Pool.TokenPool;
 import com.example.my_test6.Pool.login;
 import com.example.my_test6.Pool.netWork.GetApi;
 import com.example.my_test6.Pool.netWork.PostUserApi;
 import com.example.my_test6.R;
-import com.example.my_test6.blink_module.adapter.blinkResponseListAdapter;
-import com.example.my_test6.blink_module.blinkBean.blinkResponseInfo;
+import com.example.my_test6.user_module.GsonBean.BlogResponse;
+import com.example.my_test6.user_module.ListAdapters.BlogResponseListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -37,7 +38,6 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,8 +58,8 @@ public class ResponseBlog extends AppCompatActivity {
     private Button send_confirm;
     private TextView noResponse;
     private RefreshLayout refreshLayout;
-    private List<blinkResponseInfo> blinkResponseInfoList = new ArrayList<>();
-    private com.example.my_test6.blink_module.adapter.blinkResponseListAdapter blinkResponseListAdapter;
+    private List<BlogResponse> blogResponseList = new ArrayList<>();
+    private BlogResponseListAdapter blogResponseListAdapter;
     private static String TAG = "ResponseBlog";
 
     @SuppressLint("HandlerLeak")
@@ -69,17 +69,16 @@ public class ResponseBlog extends AppCompatActivity {
             if (msg.what == RESPONSE_INIT) {
                 String s = (String) msg.obj;
                 android.util.Log.d(TAG, "ResponseDetailActivityhandleMessage: " + s);
-                Type blinkResponseListType = new TypeToken<ArrayList<blinkResponseInfo>>() {
-                }.getType();
-                List<blinkResponseInfo> blinkResponseInfoList_temp;
+                List<BlogResponse> blogResponseList_temp;
                 Gson gson = new Gson();
-                blinkResponseInfoList_temp = gson.fromJson(s, blinkResponseListType);
+                blogResponseList_temp = gson.fromJson(s, new TypeToken<ArrayList<BlogResponse>>() {
+                }.getType());
                 try {
-                    blinkResponseInfoList.clear();
-                    blinkResponseInfoList.addAll(blinkResponseInfoList_temp);
-                    blinkResponseListAdapter = new blinkResponseListAdapter(ResponseBlog.this, blinkResponseInfoList);
-                    listView.setAdapter(blinkResponseListAdapter);
-                    if (!blinkResponseInfoList.isEmpty()) {
+                    blogResponseList.clear();
+                    blogResponseList.addAll(blogResponseList_temp);
+                    blogResponseListAdapter = new BlogResponseListAdapter(ResponseBlog.this, blogResponseList);
+                    listView.setAdapter(blogResponseListAdapter);
+                    if (!blogResponseList.isEmpty()) {
                         noResponse.setVisibility(View.INVISIBLE);
                     } else {
                         noResponse.setText("无评论");
@@ -102,7 +101,7 @@ public class ResponseBlog extends AppCompatActivity {
         blogApp = intent.getStringExtra("blogApp");
         postId = intent.getStringExtra("postId");
         setContentView(R.layout.blink_activity_response_detail);
-        //setUI();
+        setUI();
     }
 
     private void setUI() {
@@ -130,7 +129,7 @@ public class ResponseBlog extends AppCompatActivity {
             @Override
             public void onRefresh(RefreshLayout refreshLayout) {
                 if(isNetworkConnected(ResponseBlog.this)){
-                    blinkResponseInfoList.clear();
+                    blogResponseList.clear();
                     getResponse(handler, blogApp, postId, RESPONSE_INIT);
                     refreshLayout.finishRefresh();
                 }else{
@@ -148,13 +147,13 @@ public class ResponseBlog extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                blinkResponseInfo blinkResponseInfo = (blinkResponseInfo) listView.getAdapter().getItem(position);
+                BlogResponse blogResponse = (BlogResponse) listView.getAdapter().getItem(position);
                 if(isNetworkConnected(ResponseBlog.this)){
                     if (!TokenPool.getTokenPool().isLogin) {
                         Intent intent = new Intent(ResponseBlog.this, login.class);
                         startActivity(intent);
                     } else {
-                        showPopupWindow(blinkResponseInfo.getUserDisplayName());
+                        showPopupWindow(blogResponse.Author);
                     }
                 }else{
                     Toast.makeText(ResponseBlog.this, "网络好像出了点问题", Toast.LENGTH_SHORT).show();
